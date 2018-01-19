@@ -10,7 +10,7 @@ flogo install github.com/mmussett/flogo-components/activity/ems
 Link for flogo.ui:
 
 ```
-https://github.com/mmussett/flogo-components/activitiy/ems
+https://github.com/mmussett/flogo-components/activity/ems
 ```
 
 ## Schema
