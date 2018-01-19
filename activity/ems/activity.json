@@ -1,0 +1,63 @@
+{
+  "name": "ems",
+  "version": "0.0.1",
+  "type": "flogo:activity",
+  "ref": "github.com/mmussett/flogo-contrib/activity/ems",
+  "title": "An EMS message producer",
+  "description": "An EMS message producer",
+  "author": "Mark Mussett <mmussett@tibco.com>",
+  "homepage": "https://github.com/mmussett/flogo-contrib/tree/master/activity/ems",
+  "inputs":[
+    {
+      "name": "content",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "destination",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "serverUrl",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "user",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "deliveryDelay",
+      "type": "integer",
+      "required": true
+    },
+    {
+      "name": "deliveryMode",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "expiration",
+      "type": "integer",
+      "required": true
+    },
+    {
+      "name": "tracing",
+      "type": "any",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "tracing",
+      "type": "any"
+    }
+  ]
+}
