@@ -1,6 +1,18 @@
 # ems
 This activity provides your Flogo application the ability to send EMS messages.
 
+## Installation
+
+```
+flogo install github.com/mmussett/flogo-components/activity/ems
+```
+
+Link for flogo.ui:
+
+```
+https://github.com/mmussett/flogo-components/activitiy/ems
+```
+
 ## Schema
 Inputs and Outputs:
 
