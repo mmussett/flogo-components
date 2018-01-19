@@ -24,8 +24,10 @@ const (
 	ivDeliveryMode  = "deliveryMode"
 	ivExpiration    = "expiration"
 	ivTracing       = "tracing"
+	ivExchangeMode  = "exchangeMode"
 
-	ovTracing = "tracing"
+	ovResponse      = "response"
+	ovTracing       = "tracing"
 )
 
 var (
@@ -34,6 +36,7 @@ var (
 	errorDeliveryDelayIsNotANumber       = errors.New("delivery delay is not a number")
 	errorDeliveryModeIsNotAString        = errors.New("delivery mode is not a string")
 	errorExpirationIsNotANumber          = errors.New("expiration is not a number")
+	errorExchangeModeIsNotAString        = errors.New("exchange mode is not a string")
 )
 
 var log = logger.GetLogger("activity-tibco-rest")
@@ -92,6 +95,8 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	}
 	if password, ok := context.GetInput(ivPassword).(string); ok {
 		opts.SetPassword(password)
+	} else {
+		opts.SetPassword("")
 	}
 
 	client := ems.NewClient(opts)
@@ -148,11 +153,30 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		return false, errorDeliveryModeIsNotAString
 	}
 
-	err = client.Send(destination, content, deliveryDelay, deliveryMode, expiration)
-	if err != nil {
-		logError("Timeout occurred while trying to send to destination '%s'", destination)
-		return false, err
+	exchangeMode, ok := context.GetInput(ivExchangeMode).(string)
+	if !ok {
+		logError(errorExchangeModeIsNotAString.Error())
+		return false, errorDestinationIsNotAString
 	}
+
+	if exchangeMode == "send-only" {
+		err = client.Send(destination, content, deliveryDelay, deliveryMode, expiration)
+		if err != nil {
+			logError("Timeout occurred while trying to send to destination '%s'", destination)
+			return false, err
+		}
+	} else {
+		response, err := client.SendReceive(destination, content, deliveryMode, expiration)
+		if err != nil {
+			logError("Timeout occurred while trying to send to destination '%s'", destination)
+			return false, err
+		}
+
+		log.Debugf("Response payload: %s", response)
+		context.SetOutput(ovResponse,response)
+
+	}
+
 
 	return true, nil
 }

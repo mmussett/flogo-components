@@ -7,11 +7,6 @@ This activity provides your Flogo application the ability to send EMS messages.
 flogo install github.com/mmussett/flogo-components/activity/ems
 ```
 
-Link for flogo.ui:
-
-```
-https://github.com/mmussett/flogo-components/activity/ems
-```
 
 ## Schema
 Inputs and Outputs:
@@ -42,7 +37,7 @@ Inputs and Outputs:
     {
       "name": "password",
       "type": "string",
-      "required": true
+      "required": false
     },
     {
       "name": "deliveryDelay",
