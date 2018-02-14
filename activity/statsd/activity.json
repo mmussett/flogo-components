@@ -1,0 +1,46 @@
+{
+  "name": "statsd",
+  "version": "0.0.1",
+  "type": "flogo:activity",
+  "description": "a statsd emmitter",
+  "author": "Mark Mussett <mmussett@tibco.com>",
+  "inputs":[
+    {
+      "name": "server",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "prefix",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "metrictype",
+      "type": "string",
+      "required": true,
+      "allowed": ["absolute-int","absolute-float","decr","incr","gauge-int","gauge-float","gauge-delta-int","gauge-delta-float","timing","total"]
+    },
+    {
+      "name": "bucket",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "value",
+      "type": "any",
+      "required": true
+    },
+    {
+      "name": "tracing",
+      "type": "any",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "tracing",
+      "type": "any"
+    }
+  ]
+}
