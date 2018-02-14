@@ -64,7 +64,7 @@ func TestSendOnly(t *testing.T) {
 	tc.SetInput(ivDeliveryDelay, 0)
 	tc.SetInput(ivDeliveryMode, "non_persistent")
 	tc.SetInput(ivExpiration, 10000)
-	tc.SetInput(ivExchangeMode,"send-only")
+	tc.SetInput(ivExchangeMode, "send-only")
 
 	span := opentracing.StartSpan("test")
 	ctx := opentracing.ContextWithSpan(context.Background(), span)
@@ -107,7 +107,7 @@ func TestSendReceive(t *testing.T) {
 	tc.SetInput(ivDeliveryDelay, 0)
 	tc.SetInput(ivDeliveryMode, "non_persistent")
 	tc.SetInput(ivExpiration, 10000)
-	tc.SetInput(ivExchangeMode,"send-receive")
+	tc.SetInput(ivExchangeMode, "send-receive")
 
 	span := opentracing.StartSpan("test")
 	ctx := opentracing.ContextWithSpan(context.Background(), span)

@@ -26,8 +26,8 @@ const (
 	ivTracing       = "tracing"
 	ivExchangeMode  = "exchangeMode"
 
-	ovResponse      = "response"
-	ovTracing       = "tracing"
+	ovResponse = "response"
+	ovTracing  = "tracing"
 )
 
 var (
@@ -84,7 +84,6 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	}
 
 	opts := ems.NewClientOptions()
-
 
 	if serverURL, ok := context.GetInput(ivServerURL).(string); ok {
 		setTag("serverUrl", serverURL)
@@ -173,10 +172,9 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		}
 
 		log.Debugf("Response payload: %s", response)
-		context.SetOutput(ovResponse,response)
+		context.SetOutput(ovResponse, response)
 
 	}
-
 
 	return true, nil
 }

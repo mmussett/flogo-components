@@ -1,8 +1,8 @@
 {
   "name": "ems",
-  "version": "0.0.1",
   "type": "flogo:activity",
   "ref": "github.com/mmussett/flogo-components/activity/ems",
+  "version": "0.0.1",
   "title": "Send EMS",
   "description": "An EMS message producer",
   "author": "Mark Mussett <mmussett@tibco.com>",
