@@ -7,6 +7,11 @@ This activity provides your Flogo application the ability to send statsd events.
 flogo install github.com/mmussett/flogo-components/activity/statsd
 ```
 
+Link for flogo web:
+
+```
+https://github.com/mmussett/flogo-components/activity/statsd
+```
 
 ## Schema
 Inputs and Outputs:
