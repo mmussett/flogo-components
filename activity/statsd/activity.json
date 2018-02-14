@@ -1,12 +1,12 @@
 {
-  "name": "StatsdPublisher",
-  "version": "0.0.1",
+  "name": "statsd",
   "type": "flogo:activity",
   "ref": "github.com/mmussett/flogo-components/activity/statsd",
+  "version": "0.0.1",
   "title": "Publish to Statsd",
   "description": "Publish metrics to statsd",
   "author": "Mark Mussett <mmussett@tibco.com>",
-  "homepage": "https://github.com/mmussett/flogo-components/tree/master/activity/statsd"
+  "homepage": "https://github.com/mmussett/flogo-components/tree/master/activity/statsd",
   "inputs":[
     {
       "name": "server",
