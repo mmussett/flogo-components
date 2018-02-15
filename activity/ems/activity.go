@@ -39,7 +39,7 @@ var (
 	errorExchangeModeIsNotAString        = errors.New("exchange mode is not a string")
 )
 
-var log = logger.GetLogger("activity-tibco-rest")
+var log = logger.GetLogger("activity-tibco-ems")
 
 // MyActivity is a stub for your Activity implementation
 type MyActivity struct {
