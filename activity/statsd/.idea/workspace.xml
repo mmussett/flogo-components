@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1021086c-8c11-4807-a5f9-8472d3e65d6b" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="activity_test.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/activity_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/activity.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="24" column="74" lean-forward="true" selection-start-line="24" selection-start-column="65" selection-end-line="24" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/activity.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="128" column="19" lean-forward="true" selection-start-line="128" selection-start-column="19" selection-end-line="128" selection-end-column="19" />
+              <folding>
+                <element signature="e#16#240#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="GOROOT" path="/usr/local/Cellar/go/1.9.2/libexec" />
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/activity.json" />
+        <option value="$PROJECT_DIR$/activity.go" />
+        <option value="$PROJECT_DIR$/activity_test.go" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="785" />
+    <option name="y" value="-1417" />
+    <option name="width" value="1276" />
+    <option name="height" value="1417" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="statsd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="statsd" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="go.sdk.automatically.set" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Go Test.TestEval_GaugeDeltaFloat in activity_test.go">
+    <configuration name="TestEval_GaugeDeltaFloat in activity_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+      <module name="statsd" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mmussett/flogo-components/activity/statsd" />
+      <pattern value="^TestEval_GaugeDeltaFloat$" />
+    </configuration>
+    <configuration name="TestEval_GaugeDeltaInt in activity_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+      <module name="statsd" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mmussett/flogo-components/activity/statsd" />
+      <pattern value="^TestEval_GaugeDeltaInt$" />
+    </configuration>
+    <configuration name="TestEval_GaugeFloat in activity_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+      <module name="statsd" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mmussett/flogo-components/activity/statsd" />
+      <pattern value="^TestEval_GaugeFloat$" />
+    </configuration>
+    <configuration name="TestEval_Gauge_Int in activity_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+      <module name="statsd" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mmussett/flogo-components/activity/statsd" />
+      <pattern value="^TestEval_Gauge_Int$" />
+    </configuration>
+    <configuration name="TestEval_Incr in activity_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+      <module name="statsd" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mmussett/flogo-components/activity/statsd" />
+      <pattern value="^TestEval_Incr$" />
+    </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Go Test.TestEval_Incr in activity_test.go" />
+      <item index="1" class="java.lang.String" itemvalue="Go Test.TestEval_Gauge_Int in activity_test.go" />
+      <item index="2" class="java.lang.String" itemvalue="Go Test.TestEval_GaugeFloat in activity_test.go" />
+      <item index="3" class="java.lang.String" itemvalue="Go Test.TestEval_GaugeDeltaInt in activity_test.go" />
+      <item index="4" class="java.lang.String" itemvalue="Go Test.TestEval_GaugeDeltaFloat in activity_test.go" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Go Test.TestEval_GaugeDeltaFloat in activity_test.go" />
+        <item index="1" class="java.lang.String" itemvalue="Go Test.TestEval_GaugeDeltaInt in activity_test.go" />
+        <item index="2" class="java.lang.String" itemvalue="Go Test.TestEval_GaugeFloat in activity_test.go" />
+        <item index="3" class="java.lang.String" itemvalue="Go Test.TestEval_Gauge_Int in activity_test.go" />
+        <item index="4" class="java.lang.String" itemvalue="Go Test.TestEval_Incr in activity_test.go" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="TestEval_GaugeDeltaFloat_in_activity_test_go - 2018.02.14 at 15h 53m 56s.xml">
+      <configuration name="TestEval_GaugeDeltaFloat in activity_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestEval_GaugeDeltaInt_in_activity_test_go - 2018.02.14 at 15h 53m 18s.xml">
+      <configuration name="TestEval_GaugeDeltaInt in activity_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestEval_GaugeDeltaInt_in_activity_test_go - 2018.02.14 at 15h 53m 26s.xml">
+      <configuration name="TestEval_GaugeDeltaInt in activity_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestEval_GaugeDeltaInt_in_activity_test_go - 2018.02.14 at 15h 53m 35s.xml">
+      <configuration name="TestEval_GaugeDeltaInt in activity_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestEval_GaugeFloat_in_activity_test_go - 2018.02.14 at 15h 52m 46s.xml">
+      <configuration name="TestEval_GaugeFloat in activity_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestEval_Gauge_Int_in_activity_test_go - 2018.02.14 at 15h 52m 05s.xml">
+      <configuration name="TestEval_Gauge_Int in activity_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestEval_Gauge_Int_in_activity_test_go - 2018.02.14 at 15h 52m 10s.xml">
+      <configuration name="TestEval_Gauge_Int in activity_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestEval_Incr_in_activity_test_go - 2018.02.14 at 15h 50m 59s.xml">
+      <configuration name="TestEval_Incr in activity_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestEval_Incr_in_activity_test_go - 2018.02.14 at 15h 51m 07s.xml">
+      <configuration name="TestEval_Incr in activity_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestEval_Incr_in_activity_test_go - 2018.02.14 at 15h 51m 25s.xml">
+      <configuration name="TestEval_Incr in activity_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="785" y="-1417" width="1276" height="1417" extended-state="0" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936803" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/activity.go</url>
+          <line>94</line>
+          <properties />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/activity.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="128" column="19" lean-forward="true" selection-start-line="128" selection-start-column="19" selection-end-line="128" selection-end-column="19" />
+          <folding>
+            <element signature="e#16#240#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/activity.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="74" lean-forward="true" selection-start-line="24" selection-start-column="65" selection-end-line="24" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/activity_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

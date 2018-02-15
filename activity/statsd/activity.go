@@ -8,6 +8,7 @@ import (
 	"github.com/opentracing/opentracing-go"
 	"github.com/quipo/statsd"
 	ctx "golang.org/x/net/context"
+	"strconv"
 )
 
 const (
@@ -128,12 +129,19 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 	case "gauge-int":
 
-		value, ok := context.GetInput(ivValue).(int)
+		s, ok := context.GetInput(ivValue).(string)
 		if !ok {
+			logError("gauge metric requires value")
+			return false, errorInvalidValue
+		}
+
+		value,err := strconv.ParseInt(s, 10,64)
+		if err != nil {
 			logError("gauge metric requires integer value")
 			return false, errorInvalidValue
 		}
-		statsdClient.Gauge(bucket, int64(value))
+
+		statsdClient.Gauge(bucket, value)
 
 	case "gauge-float":
 
