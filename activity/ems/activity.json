@@ -3,10 +3,16 @@
   "type": "flogo:activity",
   "ref": "github.com/mmussett/flogo-components/activity/ems",
   "version": "0.0.1",
-  "title": "Send EMS",
-  "description": "An EMS message producer",
+  "title": "Publish EMS message",
+  "description": "Publish EMS message",
   "author": "Mark Mussett <mmussett@tibco.com>",
   "homepage": "https://github.com/mmussett/flogo-components/tree/master/activity/ems",
+  "display": {
+    "description": "Publish EMS message",
+    "category": "Utility",
+    "uid": "mmussett-ems",
+    "visible": true
+  },
   "inputs":[
     {
       "name": "content",
