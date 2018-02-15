@@ -89,40 +89,65 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		return false, errorSocketCreation
 	}
 
+
 	switch metricType {
 	//"absolute-int","absolute-float","decr","incr","gauge-int","gauge-float","gauge-delta-int","gauge-delta-float","timing","total"
 	case "absolute-int":
 
-		value, ok := context.GetInput(ivValue).(int)
+		s, ok := context.GetInput(ivValue).(string)
 		if !ok {
-			logError("absolute metric requires float value")
+			logError(" metric requires integer value")
 			return false, errorInvalidValue
 		}
-		statsdClient.Absolute(bucket, int64(value))
+
+		value,err := strconv.ParseInt(s, 10,64)
+		if err != nil {
+			logError("metric requires integer value")
+			return false, errorInvalidValue
+		}
+		statsdClient.Absolute(bucket, value)
 
 	case "absolute-float":
 
-		value, ok := context.GetInput(ivValue).(float64)
+		s, ok := context.GetInput(ivValue).(string)
 		if !ok {
-			logError("absolute metric requires float value")
+			logError("metric requires float value")
+			return false, errorInvalidValue
+		}
+
+		value,err := strconv.ParseFloat(s, 64)
+		if err != nil {
+			logError("metric requires float value")
 			return false, errorInvalidValue
 		}
 		statsdClient.FAbsolute(bucket, value)
 
 	case "decr":
 
-		value, ok := context.GetInput(ivValue).(int)
+		s, ok := context.GetInput(ivValue).(string)
 		if !ok {
-			logError("decr metric requires integer value")
+			logError("metric requires integer value")
 			return false, errorInvalidValue
 		}
-		statsdClient.Decr(bucket, int64(value))
+
+		value,err := strconv.ParseInt(s, 10,64)
+		if err != nil {
+			logError("metric requires integer value")
+			return false, errorInvalidValue
+		}
+		statsdClient.Decr(bucket, value)
 
 	case "incr":
 
-		value, ok := context.GetInput(ivValue).(int)
+		s, ok := context.GetInput(ivValue).(string)
 		if !ok {
-			logError("incr metric requires integer value")
+			logError("metric requires integer value")
+			return false, errorInvalidValue
+		}
+
+		value,err := strconv.ParseInt(s, 10,64)
+		if err != nil {
+			logError("metric requires integer value")
 			return false, errorInvalidValue
 		}
 		statsdClient.Incr(bucket, int64(value))
@@ -131,13 +156,13 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 		s, ok := context.GetInput(ivValue).(string)
 		if !ok {
-			logError("gauge metric requires value")
+			logError("metric requires integer value")
 			return false, errorInvalidValue
 		}
 
 		value,err := strconv.ParseInt(s, 10,64)
 		if err != nil {
-			logError("gauge metric requires integer value")
+			logError("metric requires integer value")
 			return false, errorInvalidValue
 		}
 
@@ -145,45 +170,78 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 	case "gauge-float":
 
-		value, ok := context.GetInput(ivValue).(float64)
+		s, ok := context.GetInput(ivValue).(string)
 		if !ok {
-			logError("gauge metric requires float value")
+			logError("metric requires float value")
+			return false, errorInvalidValue
+		}
+
+		value,err := strconv.ParseFloat(s, 64)
+		if err != nil {
+			logError("metric requires float value")
 			return false, errorInvalidValue
 		}
 		statsdClient.FGauge(bucket, value)
 
 	case "gauge-delta-int":
 
-		value, ok := context.GetInput(ivValue).(int)
+		s, ok := context.GetInput(ivValue).(string)
 		if !ok {
-			logError("gauge metric requires integer value")
+			logError("metric requires integer value")
+			return false, errorInvalidValue
+		}
+
+		value,err := strconv.ParseInt(s, 10,64)
+		if err != nil {
+			logError("metric requires integer value")
 			return false, errorInvalidValue
 		}
 		statsdClient.GaugeDelta(bucket, int64(value))
 
 	case "gauge-delta-float":
 
-		value, ok := context.GetInput(ivValue).(float64)
+		s, ok := context.GetInput(ivValue).(string)
 		if !ok {
-			logError("gauge metric requires float value")
+			logError("metric requires float value")
+			return false, errorInvalidValue
+		}
+
+		value,err := strconv.ParseFloat(s, 64)
+		if err != nil {
+			logError("metric requires float value")
 			return false, errorInvalidValue
 		}
 		statsdClient.FGaugeDelta(bucket, value)
 
 	case "timing":
 
-		value, ok := context.GetInput(ivValue).(int)
+		s, ok := context.GetInput(ivValue).(string)
 		if !ok {
-			logError("timing metric requires int value")
+			logError("metric requires integer value")
+			return false, errorInvalidValue
 		}
-		statsdClient.Timing(bucket, int64(value))
+
+		value,err := strconv.ParseInt(s, 10,64)
+		if err != nil {
+			logError("metric requires integer value")
+			return false, errorInvalidValue
+		}
+		statsdClient.Timing(bucket, value)
 
 	case "total":
-		value, ok := context.GetInput(ivValue).(int)
+
+		s, ok := context.GetInput(ivValue).(string)
 		if !ok {
-			logError("total metric requires int value")
+			logError("metric requires integer value")
+			return false, errorInvalidValue
 		}
-		statsdClient.Total(bucket, int64(value))
+
+		value,err := strconv.ParseInt(s, 10,64)
+		if err != nil {
+			logError("metric requires integer value")
+			return false, errorInvalidValue
+		}
+		statsdClient.Total(bucket, value)
 
 	default:
 	}

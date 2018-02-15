@@ -37,7 +37,7 @@
     },
     {
       "name": "value",
-      "type": "any",
+      "type": "string",
       "required": true
     },
     {
