@@ -7,6 +7,12 @@
   "description": "Publish metrics to statsd",
   "author": "Mark Mussett <mmussett@tibco.com>",
   "homepage": "https://github.com/mmussett/flogo-components/tree/master/activity/statsd",
+  "display": {
+    "description": "Publish metrics to statsd",
+    "category": "Utility",
+    "uid": "mmussett-statsd",
+    "visible": true
+  },
   "inputs":[
     {
       "name": "server",
