@@ -1,21 +1,19 @@
 package env
 
 import (
-	"os"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
+	"os"
 )
 
 const (
-
 	methodGet = "GET"
 	methodSet = "SET"
 
-	ivMethod     = "method"
-	ivEnvName    = "envName"
-	ivEnvValue   = "envValue"
+	ivMethod   = "method"
+	ivEnvName  = "envName"
+	ivEnvValue = "envValue"
 
-	ovResult  = "result"
-
+	ovResult = "result"
 )
 
 // MyActivity is a stub for your Activity implementation
@@ -36,11 +34,9 @@ func (a *MyActivity) Metadata() *activity.Metadata {
 // Eval implements activity.Activity.Eval
 func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
-
 	method := context.GetInput(ivMethod).(string)
 	envName := context.GetInput(ivEnvName).(string)
 	envValue := context.GetInput(ivEnvValue).(string)
-
 
 	switch method {
 
