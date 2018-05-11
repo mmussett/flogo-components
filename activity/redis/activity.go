@@ -159,8 +159,11 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 			return true, err
 		}
 
-		// Set the output value in the context
-		context.SetOutput(ovResult, val)
+		if val==0 {
+			context.SetOutput(ovResult, "false")
+		} else {
+			context.SetOutput(ovResult, "true")
+		}
 		return true, nil
 
 	case methodExpire:
