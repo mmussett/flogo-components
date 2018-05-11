@@ -1,0 +1,69 @@
+{
+  "name": "redis",
+  "type": "flogo:activity",
+  "ref": "github.com/mmussett/flogo-components/activity/redis",
+  "version": "0.0.1",
+  "title": "Redis",
+  "description": "Activities for interacting with Redis.",
+  "author": "mmussett",
+  "homepage": "https://github.com/mmussett/flogo-components/tree/master/activity/redis",
+  "inputs": [
+    {
+      "name": "method",
+      "type": "string",
+      "allowed": [
+        "PING",
+        "SET",
+        "GET",
+        "DELETE",
+        "EXISTS",
+        "EXPIRE",
+        "PERSIST",
+        "PEXPIRE",
+        "TTL",
+        "PTTL",
+        "RENAME",
+        "APPEND",
+        "FLUSHALL",
+        "FLUSHDB",
+        "DECR",
+        "INCR",
+        "DECRBY",
+        "INCRBY"
+      ],
+      "required": true
+    },
+    {
+      "name": "address",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "password",
+      "type": "string"
+    },
+    {
+      "name": "database",
+      "type": "integer",
+      "required": true
+    },
+    {
+      "name": "keyName",
+      "type": "string"
+    },
+    {
+      "name": "keyValue",
+      "type": "string"
+    },
+    {
+      "name": "expiration",
+      "type": "integer"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "type": "string"
+    }
+  ]
+}
