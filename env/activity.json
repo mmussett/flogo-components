@@ -1,0 +1,36 @@
+{
+  "name": "env",
+  "type": "flogo:activity",
+  "ref": "github.com/mmussett/flogo-components/activity/env",
+  "version": "0.0.1",
+  "title": "Env",
+  "description": "Activities for getting/setting environment variables",
+  "author": "mmussett",
+  "homepage": "https://github.com/mmussett/flogo-components/tree/master/activity/env",
+  "inputs": [
+    {
+      "name": "method",
+      "type": "string",
+      "allowed": [
+        "SET",
+        "GET"
+      ],
+      "required": true
+    },
+    {
+      "name": "envName",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "envValue",
+      "type": "string"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "type": "string"
+    }
+  ]
+}
