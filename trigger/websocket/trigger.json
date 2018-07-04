@@ -1,0 +1,30 @@
+{
+  "name": "websocket",
+  "version": "0.0.5",
+  "type": "flogo:trigger",
+  "ref": "https://github.com/mmussett/flogo-components/trigger/websocket",
+  "title": "Receive WebSocket Message",
+  "description": "WebSocket message handler",
+  "author": "Mark Mussett <mmussett@tibco.com>",
+  "homepage": "https://github.com/mmussett/flogo-components/tree/master/trigger/websocket",
+  "settings":[
+    {
+      "name": "url",
+      "type": "string"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "event",
+      "type": "string"
+    }
+  ],
+  "handler": {
+    "settings": [
+      {
+        "name": "handler_setting",
+        "type": "string"
+      }
+    ]
+  }
+ }
