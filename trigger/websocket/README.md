@@ -57,7 +57,7 @@ Outputs and Endpoint:
 
 ## Example Configuration
 
-Triggers are configured via the triggers.json of your application. The following is and example configuration of the UDP Trigger.
+Triggers are configured via the triggers.json of your application. The following is and example configuration of the WebSocket Trigger.
 
 ### Read WebSocket Data
 Configure the Trigger to receive websocket events
