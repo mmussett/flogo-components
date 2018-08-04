@@ -25,42 +25,23 @@ func getActivityMetadata() *activity.Metadata {
 	return activityMetadata
 }
 
-func TestSet(t *testing.T) {
+func Test1(t *testing.T) {
 
 	act := NewActivity(getActivityMetadata())
 	tc := test.NewTestActivityContext(getActivityMetadata())
 
 	//setup attrs
-	tc.SetInput(ivMethod, methodSet)
-	tc.SetInput(ivEnvName, "hello")
-	tc.SetInput(ivEnvValue, "world")
+	tc.SetInput(ivPin, 18)
+	tc.SetInput(ivType, "DHT22")
+	tc.SetInput(ivBoost, true)
 
 	_, err := act.Eval(tc)
 	if err != nil {
-		t.Error("unable to set env value", err)
+		t.Error("unable to read sensor", err)
 		t.Fail()
 	}
 
-	fmt.Println(tc.GetOutput(ovResult))
-
-}
-
-func TestGet(t *testing.T) {
-
-	act := NewActivity(getActivityMetadata())
-	tc := test.NewTestActivityContext(getActivityMetadata())
-
-	//setup attrs
-
-	tc.SetInput(ivMethod, methodGet)
-	tc.SetInput(ivEnvName, "GOPATH")
-
-	_, err := act.Eval(tc)
-	if err != nil {
-		t.Error("unable to get env value", err)
-		t.Fail()
-	}
-
-	fmt.Println(tc.GetOutput(ovResult))
+	fmt.Println(tc.GetOutput(ovTemp))
+	fmt.Println(tc.GetOutput(ovHumidity))
 
 }
