@@ -6,9 +6,6 @@ import (
 )
 
 const (
-	methodGet = "GET"
-	methodSet = "SET"
-
 	ivType = "type"
 	ivPin = "pin"
   ivBoost = "boost"
