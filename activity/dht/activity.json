@@ -21,10 +21,6 @@
       ],
       "type": "string",
       "required": true
-    },
-    {
-      "name": "boost",
-      "type": "boolean"
     }
   ],
   "outputs": [

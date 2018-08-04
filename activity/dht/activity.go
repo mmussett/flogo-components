@@ -8,7 +8,6 @@ import (
 const (
 	ivType = "type"
 	ivPin = "pin"
-  ivBoost = "boost"
   ivRetries = "retries"
 	ovTemp = "temp"
 	ovHumidity = "humidity"
@@ -34,7 +33,6 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 	deviceType := context.GetInput(ivType).(string)
 	gpioPin := context.GetInput(ivPin).(int)
-	boostFlag := context.GetInput(ivBoost).(bool)
 	retries := context.GetInput(ivRetries).(int)
 
 	sensorType := dht.DHT22
@@ -43,7 +41,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		sensorType = dht.DHT11
 	}
 
-	temperature, humidity, _, err := dht.ReadDHTxxWithRetry(sensorType, gpioPin, boostFlag, retries)
+	temperature, humidity, _, err := dht.ReadDHTxxWithRetry(sensorType, gpioPin, false, retries)
 
   if err != nil {
   	return false, err
