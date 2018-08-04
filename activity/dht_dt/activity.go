@@ -5,10 +5,6 @@ import (
 	)
 
 const (
-	ivType = "type"
-	ivPin = "pin"
-  ivBoost = "boost"
-  ivRetries = "retries"
 	ovTemp = "temp"
 	ovHumidity = "humidity"
 )
