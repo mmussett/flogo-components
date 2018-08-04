@@ -3,7 +3,7 @@
   "type": "flogo:activity",
   "ref": "github.com/mmussett/flogo-components/activity/dht",
   "version": "0.0.1",
-  "title": "Env",
+  "title": "DHT Sensor Reader",
   "description": "Activities for reading DHT11/22 sensor in a Raspberry PI environment",
   "author": "mmussett",
   "homepage": "https://github.com/mmussett/flogo-components/tree/master/activity/dht",
@@ -21,7 +21,12 @@
       ],
       "type": "string",
       "required": true
-    }
+    },
+    {
+      "name": "retries",
+      "type": "integer",
+      "required": true
+    },
   ],
   "outputs": [
     {

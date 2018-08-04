@@ -33,7 +33,6 @@ func Test1(t *testing.T) {
 	//setup attrs
 	tc.SetInput(ivPin, 18)
 	tc.SetInput(ivType, "DHT22")
-	tc.SetInput(ivBoost, true)
 
 	_, err := act.Eval(tc)
 	if err != nil {
