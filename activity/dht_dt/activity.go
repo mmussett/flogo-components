@@ -5,6 +5,8 @@ import (
 	)
 
 const (
+	ivType = "type"
+	ivPin = "pin"
 	ovTemp = "temp"
 	ovHumidity = "humidity"
 )
