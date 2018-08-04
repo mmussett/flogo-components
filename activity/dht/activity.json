@@ -20,7 +20,7 @@
         "DHT11"
       ],
       "type": "string",
-      "required": true,
+      "required": true
     },
     {
       "name": "boost",
