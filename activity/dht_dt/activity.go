@@ -1,4 +1,4 @@
-package dht
+package dht_dt
 
 import (
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
