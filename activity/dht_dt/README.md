@@ -34,8 +34,9 @@ Inputs and Outputs:
       "required": true,
     },
     {
-      "name": "boost",
-      "type": "boolean"
+      "name": "retries",
+      "type": "integer",
+      "required": true
     }
   ],
   "outputs": [
