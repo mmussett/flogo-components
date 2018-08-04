@@ -9,7 +9,7 @@ flogo install github.com/mmussett/flogo-components/activity/dht
 Link for flogo web:
 
 ```
-https://github.com/mmussett/flogo-components/activity/dht
+https://github.com/mmussett/flogo-components/activity/dht_dt
 ```
 
 

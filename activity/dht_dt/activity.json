@@ -1,7 +1,7 @@
 {
   "name": "dht",
   "type": "flogo:activity",
-  "ref": "github.com/mmussett/flogo-components/activity/dht",
+  "ref": "github.com/mmussett/flogo-components/activity/dht_dt",
   "version": "0.0.1",
   "title": "Env",
   "description": "Activities for reading DHT11/22 sensor in a Raspberry PI environment",
