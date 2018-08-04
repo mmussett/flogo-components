@@ -1,0 +1,201 @@
+{
+	"ImportPath": "github.com/mmussett/flogo-components/activity/dht",
+	"GoVersion": "go1.10",
+	"GodepVersion": "v80",
+	"Deps": [
+		{
+			"ImportPath": "github.com/Sirupsen/logrus",
+			"Comment": "v1.0.6-4-gc108f55",
+			"Rev": "c108f5553c369120b773da633aca62a8b42b1cf4"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-contrib/action/flow/definition",
+			"Comment": "v0.5.4-12-g0f60de4",
+			"Rev": "0f60de491317702900bdbb4f7c709291179855b7"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-contrib/action/flow/model",
+			"Comment": "v0.5.4-12-g0f60de4",
+			"Rev": "0f60de491317702900bdbb4f7c709291179855b7"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-contrib/action/flow/model/simple",
+			"Comment": "v0.5.4-12-g0f60de4",
+			"Rev": "0f60de491317702900bdbb4f7c709291179855b7"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-contrib/action/flow/test",
+			"Comment": "v0.5.4-12-g0f60de4",
+			"Rev": "0f60de491317702900bdbb4f7c709291179855b7"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-contrib/action/flow/util",
+			"Comment": "v0.5.4-12-g0f60de4",
+			"Rev": "0f60de491317702900bdbb4f7c709291179855b7"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/config",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/activity",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/data",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/expression",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/expression/direction",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/expression/expr",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/expression/function",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/expression/gocc/errors",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/expression/gocc/lexer",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/expression/gocc/parser",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/expression/gocc/token",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/funcexprtype",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/function/array/length",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/function/number/random",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/function/string/concat",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/function/string/equals",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/function/string/equalsignorecase",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/function/string/length",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/function/string/substring",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/json",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/json/field",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/core/mapper/exprmapper/ref",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/logger",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/util",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/TIBCOSoftware/flogo-lib/util/managed",
+			"Comment": "v0.5.5-28-g4db74d4",
+			"Rev": "4db74d4327a5fa4b5e4d523ecf5a802c4203c061"
+		},
+		{
+			"ImportPath": "github.com/d2r2/go-dht",
+			"Rev": "55dd8f99e70f28e7fbeb81874b0932aef6cf21dc"
+		},
+		{
+			"ImportPath": "github.com/d2r2/go-logger",
+			"Rev": "abcd884137e683ecd728ec6e14e9157358844c90"
+		},
+		{
+			"ImportPath": "github.com/d2r2/go-shell",
+			"Rev": "2428040bef3591f20c30d5b3b00ff49b68f66dc7"
+		},
+		{
+			"ImportPath": "github.com/davecgh/go-spew/spew",
+			"Comment": "v1.1.0-12-g8991bc2",
+			"Rev": "8991bc29aa16c548c550c7ff78260e27b9ab7c73"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/ssh/terminal",
+			"Rev": "c126467f60eb25f8f27e5a981f32a87e3965053f"
+		},
+		{
+			"ImportPath": "golang.org/x/sys/unix",
+			"Rev": "e072cadbbdc8dd3d3ffa82b8b4b9304c261d9311"
+		},
+		{
+			"ImportPath": "golang.org/x/sys/windows",
+			"Rev": "e072cadbbdc8dd3d3ffa82b8b4b9304c261d9311"
+		}
+	]
+}
