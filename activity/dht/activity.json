@@ -1,0 +1,40 @@
+{
+  "name": "dht",
+  "type": "flogo:activity",
+  "ref": "github.com/mmussett/flogo-components/activity/dht",
+  "version": "0.0.1",
+  "title": "Env",
+  "description": "Activities for reading DHT11/22 sensor in a Raspberry PI environment",
+  "author": "mmussett",
+  "homepage": "https://github.com/mmussett/flogo-components/tree/master/activity/dht",
+  "inputs": [
+    {
+      "name": "pin",
+      "type": "integer",
+      "required": true
+    },
+    {
+      "name": "type",
+      "allowed": [
+        "DHT22",
+        "DHT11"
+      ],
+      "type": "string",
+      "required": true,
+    },
+    {
+      "name": "boost",
+      "type": "boolean"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "temperature",
+      "type": "number"
+    },
+    {
+      "name": "humidity",
+      "type": "number"
+    }
+  ]
+}
