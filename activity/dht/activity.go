@@ -13,7 +13,7 @@ const (
 	ivPin = "pin"
   ivBoost = "boost"
   ivRetries = "retries"
-	ovTemperature = "temperature"
+	ovTemp = "temp"
 	ovHumidity = "humidity"
 )
 
@@ -52,7 +52,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
   	return false, err
   }
 
-	context.SetOutput(ovTemperature,temperature)
+	context.SetOutput(ovTemp,temperature)
 	context.SetOutput(ovHumidity,humidity)
 	return true,nil
 

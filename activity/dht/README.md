@@ -40,7 +40,7 @@ Inputs and Outputs:
   ],
   "outputs": [
     {
-      "name": "temperature",
+      "name": "temp",
       "type": "number"
     },
     {
@@ -55,15 +55,15 @@ Inputs and Outputs:
 ## Inputs
 | Setting     | Required | Description    |
 |:------------|:---------|:---------------|
-| method     | True | The method type (GET, SET) |
-| envName    | True | The environment variable name |
-| envValue     | False | The value to set the environment variable to |
+| pin         | True | GPIO pin to read from |
+| type        | True | Sensor Type (DHT11 or DHT22) |
+| boost       | False | Use boosted performance to read GPIO |
 
 ## Outputs
 | Setting     | Description    |
 |:------------|:---------------|
-| result |
-| tracing     | The output tracing context |
+| temp | Temperature (in Celsius) value read from device |
+| humidity     | Humidity value read from device |
 
 ## Configuration Example
 ```json

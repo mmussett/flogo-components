@@ -29,7 +29,7 @@
   ],
   "outputs": [
     {
-      "name": "temperature",
+      "name": "temp",
       "type": "number"
     },
     {
