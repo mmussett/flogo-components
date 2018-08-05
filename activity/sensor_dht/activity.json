@@ -1,9 +1,12 @@
 {
   "name": "sensor_dht",
-  "version": "0.0.1",
   "type": "flogo:activity",
-  "description": "Reads DHT sensor on RPI",
-  "author": "Mark Mussett <mmussett@tibco.com>",
+  "ref": "github.com/mmussett/flogo-components/activity/sensor_dht",
+  "version": "0.0.1",
+  "title": "Read DHT Sensor",
+  "description": "Activities for reading DHT11/22 sensor in a Raspberry PI environment",
+  "author": "mmussett",
+  "homepage": "https://github.com/mmussett/flogo-components/tree/master/activity/sensor_dht",
   "inputs": [
     {
       "name": "pin",
