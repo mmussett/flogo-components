@@ -9,7 +9,7 @@ flogo install github.com/mmussett/flogo-components/activity/dht
 Link for flogo web:
 
 ```
-https://github.com/mmussett/flogo-components/activity/dht_dt
+https://github.com/mmussett/flogo-components/activity/dht
 ```
 
 
@@ -34,9 +34,10 @@ Inputs and Outputs:
       "required": true,
     },
     {
-      "name": "boost",
-      "type": "boolean"
-    }
+      "name": "retries",
+      "type": "integer",
+      "required": true
+    },
   ],
   "outputs": [
     {
