@@ -1,0 +1,38 @@
+{
+  "name": "sensor_dht",
+  "version": "0.0.1",
+  "type": "flogo:activity",
+  "description": "Reads DHT sensor on RPI",
+  "author": "Mark Mussett <mmussett@tibco.com>",
+  "inputs": [
+    {
+      "name": "pin",
+      "type": "integer",
+      "required": true
+    },
+    {
+      "name": "type",
+      "allowed": [
+        "DHT22",
+        "DHT11"
+      ],
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "retries",
+      "type": "integer",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "temp",
+      "type": "number"
+    },
+    {
+      "name": "humidity",
+      "type": "number"
+    }
+  ]
+}
