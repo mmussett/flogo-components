@@ -14,7 +14,7 @@ const (
 	ovHumidity = "humidity"
 )
 
-var log = logger.GetLogger("activity-helloworld")
+var log = logger.GetLogger("sensor_dht")
 
 // MyActivity is a stub for your Activity implementation
 type MyActivity struct {
@@ -51,7 +51,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error)  {
 		return false, err
 	}
 
-	log.Debugf("DHT Sensor returned [%s] temperature and [%s] humidity", temperature, humidity)
+	log.Debugf("DHT Sensor returned [%v] temperature and [%v] humidity", temperature, humidity)
 
 	context.SetOutput(ovTemp,temperature)
 	context.SetOutput(ovHumidity,humidity)
