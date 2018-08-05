@@ -1,4 +1,4 @@
-package redis
+package googlesheets
 
 import (
 	"io/ioutil"

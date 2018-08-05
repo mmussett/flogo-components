@@ -89,7 +89,6 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		return false, errorSocketCreation
 	}
 
-
 	switch metricType {
 	//"absolute-int","absolute-float","decr","incr","gauge-int","gauge-float","gauge-delta-int","gauge-delta-float","timing","total"
 	case "absolute-int":
@@ -100,7 +99,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 			return false, errorInvalidValue
 		}
 
-		value,err := strconv.ParseInt(s, 10,64)
+		value, err := strconv.ParseInt(s, 10, 64)
 		if err != nil {
 			logError("metric requires integer value")
 			return false, errorInvalidValue
@@ -115,7 +114,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 			return false, errorInvalidValue
 		}
 
-		value,err := strconv.ParseFloat(s, 64)
+		value, err := strconv.ParseFloat(s, 64)
 		if err != nil {
 			logError("metric requires float value")
 			return false, errorInvalidValue
@@ -130,7 +129,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 			return false, errorInvalidValue
 		}
 
-		value,err := strconv.ParseInt(s, 10,64)
+		value, err := strconv.ParseInt(s, 10, 64)
 		if err != nil {
 			logError("metric requires integer value")
 			return false, errorInvalidValue
@@ -145,7 +144,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 			return false, errorInvalidValue
 		}
 
-		value,err := strconv.ParseInt(s, 10,64)
+		value, err := strconv.ParseInt(s, 10, 64)
 		if err != nil {
 			logError("metric requires integer value")
 			return false, errorInvalidValue
@@ -160,7 +159,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 			return false, errorInvalidValue
 		}
 
-		value,err := strconv.ParseInt(s, 10,64)
+		value, err := strconv.ParseInt(s, 10, 64)
 		if err != nil {
 			logError("metric requires integer value")
 			return false, errorInvalidValue
@@ -176,7 +175,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 			return false, errorInvalidValue
 		}
 
-		value,err := strconv.ParseFloat(s, 64)
+		value, err := strconv.ParseFloat(s, 64)
 		if err != nil {
 			logError("metric requires float value")
 			return false, errorInvalidValue
@@ -191,7 +190,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 			return false, errorInvalidValue
 		}
 
-		value,err := strconv.ParseInt(s, 10,64)
+		value, err := strconv.ParseInt(s, 10, 64)
 		if err != nil {
 			logError("metric requires integer value")
 			return false, errorInvalidValue
@@ -206,7 +205,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 			return false, errorInvalidValue
 		}
 
-		value,err := strconv.ParseFloat(s, 64)
+		value, err := strconv.ParseFloat(s, 64)
 		if err != nil {
 			logError("metric requires float value")
 			return false, errorInvalidValue
@@ -221,7 +220,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 			return false, errorInvalidValue
 		}
 
-		value,err := strconv.ParseInt(s, 10,64)
+		value, err := strconv.ParseInt(s, 10, 64)
 		if err != nil {
 			logError("metric requires integer value")
 			return false, errorInvalidValue
@@ -236,7 +235,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 			return false, errorInvalidValue
 		}
 
-		value,err := strconv.ParseInt(s, 10,64)
+		value, err := strconv.ParseInt(s, 10, 64)
 		if err != nil {
 			logError("metric requires integer value")
 			return false, errorInvalidValue
