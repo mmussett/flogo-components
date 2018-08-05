@@ -3,6 +3,7 @@ package sensor_dht
 import (
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/d2r2/go-dht"
+	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
 
 const (
@@ -12,6 +13,8 @@ const (
 	ovTemp = "temp"
 	ovHumidity = "humidity"
 )
+
+var log = logger.GetLogger("activity-helloworld")
 
 // MyActivity is a stub for your Activity implementation
 type MyActivity struct {
@@ -44,8 +47,11 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error)  {
 	temperature, humidity, _, err := dht.ReadDHTxxWithRetry(sensorType, gpioPin, false, retries)
 
 	if err != nil {
+		log.Error(err)
 		return false, err
 	}
+
+	log.Debugf("DHT Sensor returned [%s] temperature and [%s] humidity", temperature, humidity)
 
 	context.SetOutput(ovTemp,temperature)
 	context.SetOutput(ovHumidity,humidity)
