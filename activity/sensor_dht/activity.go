@@ -4,6 +4,7 @@ import (
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/d2r2/go-dht"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
+		"fmt"
 )
 
 const (
@@ -53,7 +54,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error)  {
 
 	log.Debugf("DHT Sensor returned [%v] temperature and [%v] humidity", temperature, humidity)
 
-	context.SetOutput(ovTemp,temperature)
-	context.SetOutput(ovHumidity,humidity)
+	context.SetOutput(ovTemp, fmt.Sprint(temperature))
+	context.SetOutput(ovHumidity,fmt.Sprint(humidity))
 	return true,nil
 }
