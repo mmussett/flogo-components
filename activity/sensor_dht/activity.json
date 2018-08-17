@@ -21,11 +21,6 @@
       ],
       "type": "string",
       "required": true
-    },
-    {
-      "name": "retries",
-      "type": "integer",
-      "required": true
     }
   ],
   "outputs": [
