@@ -2,7 +2,7 @@ package sensor_dht
 
 import (
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	"github.com/d2r2/go-dht"
+	"github.com/pakohan/dht"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
 		"fmt"
 )
@@ -10,7 +10,6 @@ import (
 const (
 	ivType = "type"
 	ivPin = "pin"
-	ivRetries = "retries"
 	ovTemp = "temp"
 	ovHumidity = "humidity"
 )
@@ -37,15 +36,16 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error)  {
 
 	deviceType := context.GetInput(ivType).(string)
 	gpioPin := context.GetInput(ivPin).(int)
-	retries := context.GetInput(ivRetries).(int)
 
-	sensorType := dht.DHT22
+
+	sensorType := dht.SensorDHT22
 
 	if deviceType=="DHT11" {
-		sensorType = dht.DHT11
+		sensorType = dht.SensorDHT11
 	}
 
-	temperature, humidity, _, err := dht.ReadDHTxxWithRetry(sensorType, gpioPin, false, retries)
+
+	humidity,temperature , err := dht.GetSensorData(sensorType,gpioPin)
 
 	if err != nil {
 		log.Error(err)
