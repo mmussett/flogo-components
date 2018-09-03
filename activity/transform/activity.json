@@ -1,0 +1,28 @@
+{
+  "name": "jolt",
+  "type": "flogo:activity",
+  "ref": "github.com/mmussett/flogo-components/activity/transform",
+  "version": "0.0.1",
+  "title": "Jolt",
+  "description": "JSON transformation activity using Kazaam library.",
+  "author": "mmussett",
+  "homepage": "https://github.com/mmussett/flogo-components/tree/master/activity/transform",
+  "inputs": [
+    {
+      "name": "input",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "spec",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "output",
+      "type": "string"
+    }
+  ]
+}
