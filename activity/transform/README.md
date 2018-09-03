@@ -54,4 +54,24 @@ Inputs and Outputs:
 
 ## Configuration Example
 ```json
+{
+            "id": "transform_1",
+            "name": "Transform",
+            "description": "JSON transformation activity using Kazaam library.",
+            "activity": {
+              "ref": "github.com/mmussett/flogo-components/activity/transform",
+              "input": {
+                "content": null,
+                "spec": "[{\"operation\": \"shift\", \"spec\": {\"Rating\": \"rating.primary.value\", \"example.old\": \"rating.example\"}}]"
+              },
+              "mappings": {
+                "input": [
+                  {
+                    "type": "assign",
+                    "value": "$flow.input",
+                    "mapTo": "content"
+                  }
+                ]
+              }
+            }
 ```
