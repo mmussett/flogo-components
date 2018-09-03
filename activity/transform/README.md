@@ -22,19 +22,19 @@ Inputs and Outputs:
   "inputs": [
     {
       "name": "input",
-      "type": "string",
+      "type": "any",
       "required": true
     },
     {
       "name": "spec",
-      "type": "string",
+      "type": "any",
       "required": true
     }
   ],
   "outputs": [
     {
       "name": "output",
-      "type": "string"
+      "type": "any"
     }
   ]
 }

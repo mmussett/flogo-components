@@ -15,7 +15,7 @@
     },
     {
       "name": "spec",
-      "type": "string",
+      "type": "any",
       "required": true
     }
   ],
