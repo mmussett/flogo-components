@@ -2,6 +2,7 @@ package transform
 
 import (
 	"io/ioutil"
+	"strings"
 	"testing"
 
 	"fmt"
@@ -25,15 +26,19 @@ func getActivityMetadata() *activity.Metadata {
 	return activityMetadata
 }
 
+const testJSONInput = `{"rating":{"example":{"value":3},"primary":{"value":3}}}`
 
-func Test1(t *testing.T) {
+func TestShift(t *testing.T) {
+
+	spec := `[{"operation": "shift", "spec": {"Rating": "rating.primary.value", "example.old": "rating.example"}}]`
+	jsonOut :=  `{"Rating":3,"example":{"old":{"value":3}}}`
 
 	act := NewActivity(getActivityMetadata())
 	tc := test.NewTestActivityContext(getActivityMetadata())
 
 	//setup attrs
-	tc.SetInput(ivInput, `{"input":"input value"}`)
-	tc.SetInput(ivSpec, `[{"operation": "shift", "spec": {"output": "input"}}]`)
+	tc.SetInput(ivContent, testJSONInput)
+	tc.SetInput(ivSpec, spec)
 
 
 	_, err := act.Eval(tc)
@@ -42,6 +47,10 @@ func Test1(t *testing.T) {
 		t.Fail()
 	}
 
-	fmt.Println(tc.GetOutput(ovOutput))
+	if strings.Compare(tc.GetOutput(ovResult).(string),jsonOut) == 0 {
+		t.Fail()
+	}
+
+	fmt.Println(tc.GetOutput(ovResult).(string))
 
 }

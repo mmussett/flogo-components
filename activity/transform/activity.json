@@ -9,7 +9,7 @@
   "homepage": "https://github.com/mmussett/flogo-components/tree/master/activity/transform",
   "inputs": [
     {
-      "name": "input",
+      "name": "content",
       "type": "string",
       "required": true
     },
@@ -21,7 +21,7 @@
   ],
   "outputs": [
     {
-      "name": "output",
+      "name": "result",
       "type": "string"
     }
   ]

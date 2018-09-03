@@ -8,9 +8,9 @@ import (
 
 const (
 
-	ivInput      = "input"
-	ivSpec       = "spec"
-	ovOutput     = "output"
+	ivContent = "content"
+	ivSpec    = "spec"
+	ovResult  = "result"
 )
 
 var log = logger.GetLogger("activity-tibco-transform")
@@ -34,16 +34,20 @@ func (a *MyActivity) Metadata() *activity.Metadata {
 func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 
-	input := context.GetInput(ivInput).(string)
+	input := context.GetInput(ivContent).(string)
 	spec := context.GetInput(ivSpec).(string)
 
 	k, _ := kazaam.NewKazaam(spec)
 
-	output, _ := k.TransformJSONStringToString(input)
+	output, err := k.TransformJSONStringToString(input)
 
-	log.Debugf("Response payload: %s", output)
+	if err != nil {
+		return false, err
+	}
+
+	log.Debugf("Result: %s", output)
 
 	// Set the output value in the context
-	context.SetOutput(ovOutput, output)
+	context.SetOutput(ovResult, output)
 	return true, nil
 }
