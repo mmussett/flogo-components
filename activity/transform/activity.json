@@ -10,7 +10,7 @@
   "inputs": [
     {
       "name": "content",
-      "type": "string",
+      "type": "any",
       "required": true
     },
     {
@@ -22,7 +22,7 @@
   "outputs": [
     {
       "name": "result",
-      "type": "string"
+      "type": "any"
     }
   ]
 }

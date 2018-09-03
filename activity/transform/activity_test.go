@@ -47,7 +47,7 @@ func TestShift(t *testing.T) {
 		t.Fail()
 	}
 
-	if strings.Compare(tc.GetOutput(ovResult).(string),jsonOut) == 0 {
+	if strings.Compare(tc.GetOutput(ovResult).(string),jsonOut) == 1 {
 		t.Fail()
 	}
 
