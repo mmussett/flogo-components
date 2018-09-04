@@ -21,6 +21,12 @@
     {
       "name": "exchangeType",
       "type": "string",
+      "allowed": [
+        "direct",
+        "fanout",
+        "topic",
+        "x-custom"
+      ],
       "required": true
     },
     {
