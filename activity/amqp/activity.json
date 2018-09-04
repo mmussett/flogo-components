@@ -1,0 +1,48 @@
+{
+  "name": "amqp-publish",
+  "type": "flogo:activity",
+  "ref": "github.com/mmussett/flogo-components/activity/amqp-publish",
+  "version": "0.0.1",
+  "title": "AMQP Publish",
+  "description": "AMQP publisher activity.",
+  "author": "mmussett",
+  "homepage": "https://github.com/mmussett/flogo-components/tree/master/activity/amqp",
+  "inputs": [
+    {
+      "name": "uri",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "exchangeName",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "exchangeType",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "routingKey",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "body",
+      "type": "any",
+      "required": true
+    },
+    {
+      "name": "reliable",
+      "type": "boolean",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "type": "string"
+    }
+  ]
+}
