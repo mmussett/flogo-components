@@ -44,34 +44,43 @@ Inputs and Outputs:
 ## Inputs
 | Setting     | Required | Description    |
 |:------------|:---------|:---------------|
-| input     | True | Input JSON string to transform |
+| content     | True | Input JSON string to transform |
 | spec | True | Kazaam transformation specification   |
 
 ## Outputs
 | Setting     | Description    |
 |:------------|:---------------|
-| output | Transformed JSON string
+| result | Transformed JSON string
 
 ## Configuration Example
 ```json
 {
-            "id": "transform_1",
-            "name": "Transform",
-            "description": "JSON transformation activity using Kazaam library.",
-            "activity": {
-              "ref": "github.com/mmussett/flogo-components/activity/transform",
-              "input": {
-                "content": null,
-                "spec": "[{\"operation\": \"shift\", \"spec\": {\"Rating\": \"rating.primary.value\", \"example.old\": \"rating.example\"}}]"
-              },
-              "mappings": {
-                "input": [
-                  {
-                    "type": "assign",
-                    "value": "$flow.input",
-                    "mapTo": "content"
-                  }
-                ]
+    "id": "transform_1",
+    "name": "Transform",
+    "description": "JSON transformation activity using Kazaam library.",
+    "activity": {
+        "ref": "github.com/mmussett/flogo-components/activity/transform",
+        "input": {
+            "content": null,
+            "spec": "[{\"operation\": \"shift\", \"spec\": {\"Rating\": \"rating.primary.value\", \"example.old\": \"rating.example\"}}]"
+        },
+        "mappings": {
+            "input": [
+              {
+                "type": "assign",
+                "value": "$flow.input",
+                "mapTo": "content"
               }
-            }
+            ]
+        }
+    }
+}
 ```
+
+## About Kazaam transformation library
+
+Kazaam library is used for the underlying transformation of arbitrary JSON. Similar to BazaarVoice JOLT, Kazaam uses a JSON specification to define the transformation.
+
+Please refer to github documentation on supported specification:
+
+https://github.com/qntfy/kazaam
