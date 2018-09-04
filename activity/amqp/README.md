@@ -78,21 +78,21 @@ Inputs and Outputs:
 
 ## Configuration Example
 ```json
-          {
-            "id": "amqp-publish_1",
-            "name": "AMQP Publish",
-            "description": "AMQP publisher activity.",
-            "activity": {
-              "ref": "github.com/mmussett/flogo-components/activity/amqp-publish",
-              "input": {
-                "uri": "amqp://guest:guest@localhost:5672/",
-                "exchangeName": "amqp.direct",
-                "exchangeType": "direct",
-                "routingKey": "test-key",
-                "body": "Hello, World",
-                "reliable": false
-              }
-            }
-          }
+{
+"id": "amqp-publish_1",
+"name": "AMQP Publish",
+"description": "AMQP publisher activity.",
+    "activity": {
+        "ref": "github.com/mmussett/flogo-components/activity/amqp-publish",
+        "input": {
+            "uri": "amqp://guest:guest@localhost:5672/",
+            "exchangeName": "amqp.direct",
+            "exchangeType": "direct",
+            "routingKey": "test-key",
+            "body": "Hello, World",
+            "reliable": false
+        }
+    }
+}
 ```
 
