@@ -1,4 +1,4 @@
-package env
+package uuid
 
 import (
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"

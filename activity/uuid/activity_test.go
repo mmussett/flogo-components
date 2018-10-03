@@ -1,4 +1,4 @@
-package env
+package uuid
 
 import (
 	"io/ioutil"
