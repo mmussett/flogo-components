@@ -1,0 +1,41 @@
+{
+  "name": "uuid",
+  "type": "flogo:activity",
+  "ref": "github.com/mmussett/flogo-components/activity/uuid",
+  "version": "0.0.1",
+  "title": "Generate UUID",
+  "description": "Activity for generating UUID",
+  "author": "mmussett",
+  "homepage": "https://github.com/mmussett/flogo-components/tree/master/activity/uuid",
+  "inputs": [
+    {
+      "name": "version",
+      "type": "string",
+      "allowed": ["V1", "V2","V3","V4","V5"],
+      "required": true
+    },
+    {
+      "name": "domain",
+      "type": "string",
+      "allowed": ["Person", "Group","Org"],
+      "required": false
+    },
+    {
+      "name": "namespace",
+      "type": "string",
+      "allowed": ["DNS", "URL","OID","X500"],
+      "required": false
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "type": "string"
+    }
+  ]
+}
