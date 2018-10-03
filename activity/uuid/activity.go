@@ -6,12 +6,11 @@ import (
 )
 
 const (
-
 	ivVersion   = "version"
-	ivDomain  = "domain"
+	ivDomain    = "domain"
 	ivNamespace = "namespace"
-	ivName = "name"
-	ovResult = "result"
+	ivName      = "name"
+	ovResult    = "result"
 )
 
 // MyActivity is a stub for your Activity implementation
@@ -34,7 +33,6 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 	version := context.GetInput(ivVersion).(string)
 
-
 	switch version {
 
 	case "V1":
@@ -42,8 +40,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		if err != nil {
 			return false, err
 		}
-		context.SetOutput(ovResult,u.String())
-
+		context.SetOutput(ovResult, u.String())
 
 	case "V2":
 
@@ -55,21 +52,20 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 			if err != nil {
 				return false, err
 			}
-			context.SetOutput(ovResult,u.String())
+			context.SetOutput(ovResult, u.String())
 		case "Group":
 			u, err := uuid.NewV2(uuid.DomainGroup)
 			if err != nil {
 				return false, err
 			}
-			context.SetOutput(ovResult,u.String())
+			context.SetOutput(ovResult, u.String())
 		case "Org":
 			u, err := uuid.NewV2(uuid.DomainOrg)
 			if err != nil {
 				return false, err
 			}
-			context.SetOutput(ovResult,u.String())
+			context.SetOutput(ovResult, u.String())
 		}
-
 
 	case "V3":
 
@@ -77,19 +73,18 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		name := context.GetInput(ivName).(string)
 		switch namespace {
 		case "DNS":
-			u := uuid.NewV3(uuid.NamespaceDNS,name)
-			context.SetOutput(ovResult,u.String())
+			u := uuid.NewV3(uuid.NamespaceDNS, name)
+			context.SetOutput(ovResult, u.String())
 		case "URL":
-			u := uuid.NewV3(uuid.NamespaceURL,name)
-			context.SetOutput(ovResult,u.String())
+			u := uuid.NewV3(uuid.NamespaceURL, name)
+			context.SetOutput(ovResult, u.String())
 		case "OID":
-			u := uuid.NewV3(uuid.NamespaceOID,name)
-			context.SetOutput(ovResult,u.String())
+			u := uuid.NewV3(uuid.NamespaceOID, name)
+			context.SetOutput(ovResult, u.String())
 		case "X500":
-			u := uuid.NewV3(uuid.NamespaceX500,name)
-			context.SetOutput(ovResult,u.String())
+			u := uuid.NewV3(uuid.NamespaceX500, name)
+			context.SetOutput(ovResult, u.String())
 		}
-
 
 	case "V4":
 
@@ -97,7 +92,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		if err != nil {
 			return false, err
 		}
-		context.SetOutput(ovResult,u.String())
+		context.SetOutput(ovResult, u.String())
 
 	case "V5":
 
@@ -105,22 +100,20 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		name := context.GetInput(ivName).(string)
 		switch namespace {
 		case "DNS":
-			u := uuid.NewV5(uuid.NamespaceDNS,name)
-			context.SetOutput(ovResult,u.String())
+			u := uuid.NewV5(uuid.NamespaceDNS, name)
+			context.SetOutput(ovResult, u.String())
 		case "URL":
-			u := uuid.NewV5(uuid.NamespaceURL,name)
-			context.SetOutput(ovResult,u.String())
+			u := uuid.NewV5(uuid.NamespaceURL, name)
+			context.SetOutput(ovResult, u.String())
 		case "OID":
-			u := uuid.NewV5(uuid.NamespaceOID,name)
-			context.SetOutput(ovResult,u.String())
+			u := uuid.NewV5(uuid.NamespaceOID, name)
+			context.SetOutput(ovResult, u.String())
 		case "X500":
-			u := uuid.NewV5(uuid.NamespaceX500,name)
-			context.SetOutput(ovResult,u.String())
+			u := uuid.NewV5(uuid.NamespaceX500, name)
+			context.SetOutput(ovResult, u.String())
 		}
 
-
 	}
-
 
 	return true, nil
 }
