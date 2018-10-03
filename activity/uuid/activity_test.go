@@ -50,7 +50,7 @@ func TestV2(t *testing.T) {
 
 	//setup attrs
 	tc.SetInput(ivVersion, "V2")
-	tc.SetInput(ivDomain,"Person")
+	tc.SetInput(ivDomain, "Person")
 
 	_, err := act.Eval(tc)
 	if err != nil {
@@ -69,8 +69,8 @@ func TestV3(t *testing.T) {
 
 	//setup attrs
 	tc.SetInput(ivVersion, "V3")
-	tc.SetInput(ivNamespace,"DNS")
-	tc.SetInput(ivName,"www.tibco.com")
+	tc.SetInput(ivNamespace, "DNS")
+	tc.SetInput(ivName, "www.tibco.com")
 
 	_, err := act.Eval(tc)
 	if err != nil {
@@ -107,8 +107,8 @@ func TestV5(t *testing.T) {
 
 	//setup attrs
 	tc.SetInput(ivVersion, "V5")
-	tc.SetInput(ivNamespace,"DNS")
-	tc.SetInput(ivName,"www.tibco.com")
+	tc.SetInput(ivNamespace, "DNS")
+	tc.SetInput(ivName, "www.tibco.com")
 
 	_, err := act.Eval(tc)
 	if err != nil {

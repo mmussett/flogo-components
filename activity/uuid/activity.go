@@ -2,7 +2,7 @@ package uuid
 
 import (
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	"github.com/satori/go.uuid"
+	"github.com/gofrs/uuid"
 )
 
 const (
