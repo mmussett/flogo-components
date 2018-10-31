@@ -28,19 +28,19 @@
     },
     {
       "name": "cache_hit",
-      "type": "boolean"
+      "type": "string"
     },
     {
       "name": "client_transfer_time",
-      "type": "double"
+      "type": "number"
     },
     {
       "name": "client_transfer_time",
-      "type": "float"
+      "type": "number"
     },
     {
       "name": "connect_time",
-      "type": "float"
+      "type": "number"
     },
     {
       "name": "endpoint_name",
@@ -80,7 +80,7 @@
     },
     {
       "name": "pre_transfer_time",
-      "type": "float"
+      "type": "number"
     },
     {
       "name": "qps_throttle_value",
@@ -96,7 +96,7 @@
     },
     {
       "name": "remote_total_time",
-      "type": "float"
+      "type": "number"
     },
     {
       "name": "request_host_name",
@@ -108,7 +108,7 @@
     },
     {
       "name": "request_time",
-      "type": "float"
+      "type": "number"
     },
     {
       "name": "request_uuid",
@@ -136,11 +136,11 @@
     },
     {
       "name": "ssl_enabled",
-      "type": "boolean"
+      "type": "string"
     },
     {
       "name": "total_request_exec_time",
-      "type": "float"
+      "type": "number"
     },
     {
       "name": "traffic_manager",
