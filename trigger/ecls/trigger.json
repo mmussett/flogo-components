@@ -1,0 +1,171 @@
+{
+  "name": "ecls",
+  "version": "0.0.5",
+  "type": "flogo:trigger",
+  "ref": "github.com/mmussett/flogo-components/trigger/ecls",
+  "title": "Receive Mashery ECLS Message",
+  "description": "ECLS message handler",
+  "author": "Mark Mussett <mmussett@tibco.com>",
+  "homepage": "https://github.com/mmussett/flogo-components/tree/master/trigger/ecls",
+  "settings":[
+    {
+      "name": "url",
+      "type": "string"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "api_key",
+      "type": "string"
+    },
+    {
+      "name": "api_method_name",
+      "type": "string"
+    },
+    {
+      "name": "bytes",
+      "type": "integer"
+    },
+    {
+      "name": "cache_hit",
+      "type": "boolean"
+    },
+    {
+      "name": "client_transfer_time",
+      "type": "double"
+    },
+    {
+      "name": "client_transfer_time",
+      "type": "float"
+    },
+    {
+      "name": "connect_time",
+      "type": "float"
+    },
+    {
+      "name": "endpoint_name",
+      "type": "string"
+    },
+    {
+      "name": "http_method",
+      "type": "string"
+    },
+    {
+      "name": "http_status_code",
+      "type": "integer"
+    },
+    {
+      "name": "http_version",
+      "type": "string"
+    },
+    {
+      "name": "oauth_access_token",
+      "type": "string"
+    },
+    {
+      "name": "package_name",
+      "type": "string"
+    },
+    {
+      "name": "package_uuid",
+      "type": "string"
+    },
+    {
+      "name": "plan_name",
+      "type": "string"
+    },
+    {
+      "name": "plan_uuid",
+      "type": "string"
+    },
+    {
+      "name": "pre_transfer_time",
+      "type": "float"
+    },
+    {
+      "name": "qps_throttle_value",
+      "type": "integer"
+    },
+    {
+      "name": "quota_value",
+      "type": "integer"
+    },
+    {
+      "name": "referrer",
+      "type": "string"
+    },
+    {
+      "name": "remote_total_time",
+      "type": "float"
+    },
+    {
+      "name": "request_host_name",
+      "type": "string"
+    },
+    {
+      "name": "request_id",
+      "type": "string"
+    },
+    {
+      "name": "request_time",
+      "type": "float"
+    },
+    {
+      "name": "request_uuid",
+      "type": "string"
+    },
+    {
+      "name": "response_string",
+      "type": "string"
+    },
+    {
+      "name": "service_definition_endpoint_uuid",
+      "type": "string"
+    },
+    {
+      "name": "service_id",
+      "type": "string"
+    },
+    {
+      "name": "service_name",
+      "type": "string"
+    },
+    {
+      "name": "src_ip",
+      "type": "string"
+    },
+    {
+      "name": "ssl_enabled",
+      "type": "boolean"
+    },
+    {
+      "name": "total_request_exec_time",
+      "type": "float"
+    },
+    {
+      "name": "traffic_manager",
+      "type": "string"
+    },
+    {
+      "name": "traffic_manager_error_code",
+      "type": "string"
+    },
+    {
+      "name": "uri",
+      "type": "string"
+    },
+    {
+      "name": "user_agent",
+      "type": "string"
+    }
+
+  ],
+  "handler": {
+    "settings": [
+      {
+        "name": "handler_setting",
+        "type": "string"
+      }
+    ]
+  }
+ }
