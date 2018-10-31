@@ -30,7 +30,7 @@ type ECLSMessage struct {
 		Referrer                      string    `json:"referrer"`
 		UserAgent                     string    `json:"user_agent"`
 		RequestID                     string    `json:"request_id"`
-		RequestTime                   time.Time `json:"request_time"`
+		RequestTime                   string    `json:"request_time"`
 		APIKey                        string    `json:"api_key"`
 		ServiceID                     string    `json:"service_id"`
 		TrafficManager                string    `json:"traffic_manager"`

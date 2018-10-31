@@ -1,12 +1,21 @@
+# Ecls
+This trigger provides your flogo application a websocket streaming connection for Mashery ECLS
+
+## Installation
+
+```bash
+flogo install github.com/mmussett/flogo-components/trigger/ecls
+```
+Link for flogo web:
+```
+https://github.com/mmussett/flogo-components/trigger/ecls
+```
+
+## Schema
+Outputs and Endpoint:
+
+```json
 {
-  "name": "ecls",
-  "version": "0.0.5",
-  "type": "flogo:trigger",
-  "ref": "github.com/mmussett/flogo-components/trigger/ecls",
-  "title": "Receive Mashery ECLS Message",
-  "description": "ECLS message handler",
-  "author": "Mark Mussett <mmussett@tibco.com>",
-  "homepage": "https://github.com/mmussett/flogo-components/tree/master/trigger/ecls",
   "settings":[
     {
       "name": "url",
@@ -168,4 +177,65 @@
       }
     ]
   }
- }
+}
+```
+## Settings
+| Setting   | Description    |
+|:----------|:---------------|
+| url  | websocket url |
+
+
+
+## Ouputs
+| Output   | Description    |
+|:---------|:---------------|
+| event    | The event data from the websocket server |
+
+## Handlers
+| Setting   | Description    |
+|:----------|:---------------|
+| N/A       | awaiting better understanding  |
+
+
+## Example Configuration
+
+Triggers are configured via the triggers.json of your application. The following is and example configuration of the WebSocket Trigger.
+
+### Read WebSocket Data
+Configure the Trigger to receive websocket events
+```json
+"triggers": [
+    {
+      "id": "receive_web_socket_message",
+      "ref": "github.com/mmussett/flogo-components/trigger/websocket",
+      "name": "Receive WebSocket Message",
+      "description": "WebSocket message handler",
+      "settings": {
+        "url": "wss://logstream-api.mashery.com/ecls/subscribe/567a829c-6733-416e-86a1-f74189687708/3782cd3e-33f3-4699-930e-d48d3b2e9688?key=xxx"
+      },
+      "handlers": [
+        {
+          "action": {
+            "ref": "github.com/TIBCOSoftware/flogo-contrib/action/flow",
+            "data": {
+              "flowURI": "res://flow:web_socket_handler"
+            },
+            "mappings": {
+              "input": [
+                {
+                  "mapTo": "event",
+                  "type": "assign",
+                  "value": "$.event"
+                }
+              ]
+            }
+          },
+          "settings": {
+            "handler_setting": "\"\""
+          }
+        }
+      ]
+    }
+  ],
+```
+
