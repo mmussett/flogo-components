@@ -56,7 +56,7 @@ Inputs and Outputs:
 | Setting     | Description    |
 |:------------|:---------------|
 | server      | The statsd server to send to e.g. 127.0.0.1:8125 |
-| prefix      | The EMS queue to send the message to   |
+| prefix      | The statsd prefix value e.g. flogo.stats. |
 | metrictype   | The statsd metric type to send (absolute-int,absolute-float,decr,incr,gauge-int,gauge-float,gauge-delta-int,gauge-delta-float,timing,total) |
 | bucket        | The statsd bucket name |
 | value    | The statsd value to record |
