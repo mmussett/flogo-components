@@ -136,7 +136,7 @@
     },
     {
       "name": "total_request_exec_time",
-      "type": "number"
+      "type": "long"
     },
     {
       "name": "traffic_manager",
