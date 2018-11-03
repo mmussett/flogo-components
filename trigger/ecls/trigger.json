@@ -24,7 +24,7 @@
     },
     {
       "name": "bytes",
-      "type": "integer"
+      "type": "string"
     },
     {
       "name": "cache_hit",
@@ -32,11 +32,11 @@
     },
     {
       "name": "client_transfer_time",
-      "type": "long"
+      "type": "string"
     },
     {
       "name": "connect_time",
-      "type": "long"
+      "type": "string"
     },
     {
       "name": "endpoint_name",
@@ -48,7 +48,7 @@
     },
     {
       "name": "http_status_code",
-      "type": "integer"
+      "type": "string"
     },
     {
       "name": "http_version",
@@ -76,15 +76,15 @@
     },
     {
       "name": "pre_transfer_time",
-      "type": "long"
+      "type": "string"
     },
     {
       "name": "qps_throttle_value",
-      "type": "integer"
+      "type": "string"
     },
     {
       "name": "quota_value",
-      "type": "integer"
+      "type": "string"
     },
     {
       "name": "referrer",
@@ -92,7 +92,7 @@
     },
     {
       "name": "remote_total_time",
-      "type": "long"
+      "type": "string"
     },
     {
       "name": "request_host_name",
@@ -136,7 +136,7 @@
     },
     {
       "name": "total_request_exec_time",
-      "type": "long"
+      "type": "string"
     },
     {
       "name": "traffic_manager",

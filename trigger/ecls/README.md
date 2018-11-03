@@ -33,7 +33,7 @@ Outputs and Endpoint:
     },
     {
       "name": "bytes",
-      "type": "integer"
+      "type": "string"
     },
     {
       "name": "cache_hit",
@@ -41,11 +41,11 @@ Outputs and Endpoint:
     },
     {
       "name": "client_transfer_time",
-      "type": "long"
+      "type": "string"
     },
     {
       "name": "connect_time",
-      "type": "long"
+      "type": "string"
     },
     {
       "name": "endpoint_name",
@@ -57,7 +57,7 @@ Outputs and Endpoint:
     },
     {
       "name": "http_status_code",
-      "type": "integer"
+      "type": "string"
     },
     {
       "name": "http_version",
@@ -85,15 +85,15 @@ Outputs and Endpoint:
     },
     {
       "name": "pre_transfer_time",
-      "type": "long"
+      "type": "string"
     },
     {
       "name": "qps_throttle_value",
-      "type": "integer"
+      "type": "string"
     },
     {
       "name": "quota_value",
-      "type": "integer"
+      "type": "string"
     },
     {
       "name": "referrer",
@@ -101,7 +101,7 @@ Outputs and Endpoint:
     },
     {
       "name": "remote_total_time",
-      "type": "long"
+      "type": "string"
     },
     {
       "name": "request_host_name",
@@ -145,7 +145,7 @@ Outputs and Endpoint:
     },
     {
       "name": "total_request_exec_time",
-      "type": "long"
+      "type": "string"
     },
     {
       "name": "traffic_manager",
