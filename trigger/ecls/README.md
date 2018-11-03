@@ -41,11 +41,11 @@ Outputs and Endpoint:
     },
     {
       "name": "client_transfer_time",
-      "type": "number"
+      "type": "long"
     },
     {
       "name": "connect_time",
-      "type": "number"
+      "type": "long"
     },
     {
       "name": "endpoint_name",
@@ -85,7 +85,7 @@ Outputs and Endpoint:
     },
     {
       "name": "pre_transfer_time",
-      "type": "number"
+      "type": "long"
     },
     {
       "name": "qps_throttle_value",
@@ -101,7 +101,7 @@ Outputs and Endpoint:
     },
     {
       "name": "remote_total_time",
-      "type": "number"
+      "type": "long"
     },
     {
       "name": "request_host_name",
@@ -145,7 +145,7 @@ Outputs and Endpoint:
     },
     {
       "name": "total_request_exec_time",
-      "type": "number"
+      "type": "long"
     },
     {
       "name": "traffic_manager",

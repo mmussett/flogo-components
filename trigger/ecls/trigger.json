@@ -1,6 +1,6 @@
 {
   "name": "ecls",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "flogo:trigger",
   "ref": "github.com/mmussett/flogo-components/trigger/ecls",
   "title": "Receive Mashery ECLS Message",
@@ -32,15 +32,11 @@
     },
     {
       "name": "client_transfer_time",
-      "type": "number"
-    },
-    {
-      "name": "client_transfer_time",
-      "type": "number"
+      "type": "long"
     },
     {
       "name": "connect_time",
-      "type": "number"
+      "type": "long"
     },
     {
       "name": "endpoint_name",
@@ -80,7 +76,7 @@
     },
     {
       "name": "pre_transfer_time",
-      "type": "number"
+      "type": "long"
     },
     {
       "name": "qps_throttle_value",
@@ -96,7 +92,7 @@
     },
     {
       "name": "remote_total_time",
-      "type": "number"
+      "type": "long"
     },
     {
       "name": "request_host_name",
