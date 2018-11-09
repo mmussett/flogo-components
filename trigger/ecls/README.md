@@ -162,8 +162,23 @@ Outputs and Endpoint:
     {
       "name": "user_agent",
       "type": "string"
+    },
+    {
+      "name": "log_type",
+      "type": "string"
+    },
+    {
+      "name": "ingestion_time",
+      "type": "string"
+    },
+    {
+      "name": "asCSV",
+      "type": "string"
+    },
+    {
+      "name": "asObject",
+      "type": "object"
     }
-
   ],
   "handler": {
     "settings": [
@@ -220,6 +235,10 @@ Outputs and Endpoint:
 | traffic_manager_error_code | Error code returned by Traffic Manager |
 | uri | URI (with max length imposed) |
 | user_agent | User Agent of client |
+| log_type | |
+| ingestion_time | |
+| asCSV | |
+| asObject | |
 
 ## Handlers
 | Setting   | Description    |

@@ -3,9 +3,11 @@ package ecls
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"github.com/TIBCOSoftware/flogo-lib/core/action"
 	"github.com/TIBCOSoftware/flogo-lib/core/trigger"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
+	"reflect"
 
 	"crypto/tls"
 	"github.com/gorilla/websocket"
@@ -97,6 +99,27 @@ func (t *wsTrigger) Initialize(ctx trigger.InitContext) error {
 
 }
 
+func (t *ECLSMessage) flatten() string {
+
+
+
+		v := reflect.ValueOf(t.Data[0])
+
+		fields := make([]string,v.NumField())
+		for i := 0; i < v.NumField(); i++ {
+			f := v.Field(i)
+			v := fmt.Sprintf("\"%s\"",f.Interface())
+			fields[i] = v
+
+		}
+
+		r := strings.Join(fields,",")
+
+		return r
+
+
+}
+
 // Start implements trigger.Trigger.Start
 func (t *wsTrigger) Start() error {
 
@@ -154,6 +177,9 @@ func (t *wsTrigger) Start() error {
 				var ecls_message ECLSMessage
 
 				err := json.Unmarshal([]byte(s), &ecls_message)
+
+				ecls_message.flatten()
+
 				if err == nil {
 
 
@@ -195,6 +221,10 @@ func (t *wsTrigger) Start() error {
 					trgData["traffic_manager_error_code"] = ecls_message.Data[0].TrafficManagerErrorCode
 					trgData["uri"] = ecls_message.Data[0].URI
 					trgData["user_agent"] = ecls_message.Data[0].UserAgent
+					trgData["log_type"] = ecls_message.Data[0].LogType
+					trgData["ingestion_time"] = ecls_message.Data[0].IngestionTime
+					trgData["asCSV"] = ecls_message.flatten()
+					trgData["asObject"] = ecls_message.Data[0]
 
 					for _, handler := range t.handlers {
 						results, err := handler.Handle(context.Background(), trgData)

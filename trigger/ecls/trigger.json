@@ -153,6 +153,22 @@
     {
       "name": "user_agent",
       "type": "string"
+    },
+    {
+      "name": "log_type",
+      "type": "string"
+    },
+    {
+      "name": "ingestion_time",
+      "type": "string"
+    },
+    {
+      "name": "asCSV",
+      "type": "string"
+    },
+    {
+      "name": "asObject",
+      "type": "object"
     }
 
   ],
