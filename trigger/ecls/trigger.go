@@ -224,7 +224,7 @@ func (t *wsTrigger) Start() error {
 					trgData["log_type"] = ecls_message.Data[0].LogType
 					trgData["ingestion_time"] = ecls_message.Data[0].IngestionTime
 					trgData["asCSV"] = ecls_message.flatten()
-					trgData["asObject"] = ecls_message.Data[0]
+					trgData["asObject"] = s
 
 					for _, handler := range t.handlers {
 						results, err := handler.Handle(context.Background(), trgData)
