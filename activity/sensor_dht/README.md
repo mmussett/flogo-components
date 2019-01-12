@@ -1,15 +1,12 @@
 # Sensor DHT
 This activity provides your Flogo application the ability to read a DHT11 or 22 sensor in a Raspberry PI environment.
+
+This version uses a C library implementation from a 3rd party and can only be used with Flogo CLI to build as the Flogo UI container does not have Make installed.
+
 ## Installation
 
 ```
 flogo install github.com/mmussett/flogo-components/activity/sensor_dht
-```
-
-Link for flogo web:
-
-```
-https://github.com/mmussett/flogo-components/activity/sensor_dht
 ```
 
 
