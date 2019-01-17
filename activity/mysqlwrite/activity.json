@@ -1,0 +1,40 @@
+{
+  "name": "MySQL Insert",
+  "type": "flogo:activity",
+  "ref": "github.com/mmussett/flogo-contrib/activity/mysqlwrite",
+  "version": "0.0.2",
+  "title": "MySQL Insert",
+  "description": "Inserts data into a MySQL database",
+  "author": "Akash Mahapatra <amahapat@tibco.com>",
+  "input":[
+    {
+      "name": "driverName",
+      "type": "string",
+      "required": true,
+      "allowed": [
+        "mysql"
+      ]
+    },
+    {
+      "name": "datasourceName",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "preparequery",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "queryvalue",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "output": [
+    {
+      "name": "result",
+      "type": "any"
+    }
+  ]
+}
