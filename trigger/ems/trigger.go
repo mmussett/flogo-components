@@ -78,7 +78,7 @@ func (t *emsTrigger) Start() error {
 	go func() {
 		defer c.Disconnect()
 		for {
-			log.Debug("event processing cycle starting")
+			log.Info("event processing cycle starting")
 			msgText, err := c.Receive(destinationParam)
 
 			if err != nil {
@@ -86,8 +86,8 @@ func (t *emsTrigger) Start() error {
 				return
 			}
 
-			log.Debug("received message from EMS")
-
+			log.Info("received message from EMS...")
+			log.Info("[" + msgText + "]")
 			trgData := make(map[string]interface{})
 			trgData["msgText"] = msgText
 
@@ -100,7 +100,7 @@ func (t *emsTrigger) Start() error {
 				log.Debugf("Results [%v]", results)
 			}
 
-			log.Debug("event processing cycle completed")
+			log.Info("event processing cycle completed")
 		}
 	}()
 
