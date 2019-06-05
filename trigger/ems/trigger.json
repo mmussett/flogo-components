@@ -1,0 +1,47 @@
+{
+  "name": "ems",
+  "version": "0.0.6",
+  "type": "flogo:trigger",
+  "ref": "github.com/mmussett/flogo-components/trigger/ems",
+  "title": "Receive EMS Text Message",
+  "description": "EMS message handler",
+  "author": "Mark Mussett <mmussett@tibco.com>",
+  "homepage": "https://github.com/mmussett/flogo-components/tree/master/trigger/ems",
+  "settings":[
+    {
+      "name": "destination",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "serverUrl",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "user",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "required": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "message",
+      "type": "string"
+    }
+
+  ],
+  "handler": {
+    "settings": [
+      {
+        "name": "handler_setting",
+        "type": "string"
+      }
+    ]
+  }
+ }
