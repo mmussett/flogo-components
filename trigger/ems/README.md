@@ -4,7 +4,7 @@ This trigger provides your flogo application the ability to receive JMS Text Mes
 ## Pre-requisites
 
 The trigger uses EMS C libraries in order to receive messages from EMS. 
-Trigger has been tested against EMS 8.4 on Mac OS.
+Trigger has been tested against Go v1.12.4 and EMS v8.4 on Mac OS
 
 An installation of EMS 8.4 is required for this trigger to work. 
 
