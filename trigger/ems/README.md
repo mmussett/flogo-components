@@ -16,7 +16,7 @@ Either copy the following dylibs to /usr/local/lib for the trigger to work:
 * libssl.1.0.0.dylib
 * libcrypto.1.0.0.dylib
 
-Alternatively, setting DYLD_LIBRARY_PATH or LD_LIBRARY_PATH to the location of EMS Client Libraries (/ems/8.4/lib) 
+Alternatively, setting DYLD_LIBRARY_PATH or LD_LIBRARY_PATH to the location of EMS Client Libraries (<EMS_HOME>/ems/8.4/lib) 
 should work too (i haven't tested this).
 
 
