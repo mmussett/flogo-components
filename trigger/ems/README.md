@@ -20,7 +20,7 @@ Alternatively, setting DYLD_LIBRARY_PATH or LD_LIBRARY_PATH to the location of E
 should work too (i haven't tested this).
 
 
-The trigger uses ems client go package (go get github.com/mmussett/) which will need to be modified before building. 
+The trigger uses ems client go package (go get github.com/mmussett/ems) which will need to be modified before building. 
 
 Modify the CFLAGS and LDFLAGS paths accordingly in client.go:
 
