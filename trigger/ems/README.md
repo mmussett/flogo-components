@@ -104,7 +104,7 @@ Outputs and Endpoint:
 Triggers are configured via the triggers.json of your application. 
 The following is and example configuration of the EMS Trigger.
 
-### Log Mashery ECLS Data
+### Log EMS Message
 Configure the Trigger to receive EMS Messages
 ```json
 {
