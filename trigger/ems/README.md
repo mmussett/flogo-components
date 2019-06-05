@@ -1,6 +1,19 @@
 # EMS
 This trigger provides your flogo application the ability to receive JMS Text Messages from a destination
 
+## Pre-requisites
+
+The trigger uses EMS C libraries in order to receive messages from EMS. 
+Trigger has been tested against EMS 8.4 on Mac OS.
+
+An installation of EMS 8.4 is required for this trigger to work. 
+
+Once you have installed TIBCO EMS, you will need to copy the following dylibs to /usr/local/lib for the trigger to work:
+
+* libtibems64.dylib
+* libssl.1.0.0.dylib
+* libcrypto.1.0.0.dylib
+
 ## Installation
 
 ```bash
