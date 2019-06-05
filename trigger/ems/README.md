@@ -8,11 +8,26 @@ Trigger has been tested against EMS 8.4 on Mac OS.
 
 An installation of EMS 8.4 is required for this trigger to work. 
 
-Once you have installed TIBCO EMS, you will need to copy the following dylibs to /usr/local/lib for the trigger to work:
+Once you have installed TIBCO EMS, you will need to make sure that the dynamic libraries are accessible.
+
+Either copy the following dylibs to /usr/local/lib for the trigger to work:
 
 * libtibems64.dylib
 * libssl.1.0.0.dylib
 * libcrypto.1.0.0.dylib
+
+Alternatively, setting DYLD_LIBRARY_PATH or LD_LIBRARY_PATH to the location of EMS Client Libraries (/ems/8.4/lib) 
+should work too (i haven't tested this).
+
+
+The trigger uses ems client go package (go get github.com/mmussett/) which will need to be modified before building. 
+
+Modify the CFLAGS and LDFLAGS paths accordingly in client.go:
+
+```
+#cgo darwin CFLAGS: -I/opt/tibco/ems/ems841/ems/8.4/include/tibems
+#cgo darwin LDFLAGS: -L/opt/tibco/ems/ems841/ems/8.4/lib -ltibems64
+```
 
 ## Installation
 
@@ -132,4 +147,39 @@ Configure the Trigger to receive EMS Messages
   ]
 }
 ```
+
+## Testing
+
+trigger_test.go is provided to test and can be invoked using:
+
+```
+$ go test -v
+=== RUN   TestTrigger
+2019-06-05 12:41:31.156 INFO   [trigger-ems] - Testing Trigger
+2019-06-05 12:41:31.473 INFO   [trigger-ems] - event processing cycle starting
+2019-06-05 12:41:35.416 INFO   [trigger-ems] - received message from EMS...
+2019-06-05 12:41:35.416 INFO   [trigger-ems] - [hello, world]
+2019-06-05 12:41:35.416 INFO   [trigger-ems] - event processing cycle completed
+2019-06-05 12:41:35.416 INFO   [trigger-ems] - event processing cycle starting
+```
+
+Using the shipped EMS C examples you can send message via tibemsMsgProducer to fire trigger:
+
+```
+$ ./tibemsMsgProducer -queue queue.sample "hello, world"
+------------------------------------------------------------------------
+tibemsMsgProducer SAMPLE
+------------------------------------------------------------------------
+Server....................... localhost
+User......................... (null)
+Destination.................. queue.sample
+Send Asynchronously.......... false
+Message Text.................
+	hello, world
+------------------------------------------------------------------------
+Publishing to destination 'queue.sample'
+Published message: hello, world
+```
+
+
 
