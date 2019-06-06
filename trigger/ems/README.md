@@ -34,10 +34,8 @@ Modify the CFLAGS and LDFLAGS paths accordingly in client.go:
 ```bash
 flogo install github.com/mmussett/flogo-components/trigger/ems
 ```
-Link for flogo web:
-```
-https://github.com/mmussett/flogo-components/trigger/ems
-```
+
+Currently the trigger cannot be installed using Flogo UI due to EMS client dependencies.
 
 ## Schema
 Outputs and Endpoint:
