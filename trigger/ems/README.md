@@ -108,41 +108,81 @@ The following is and example configuration of the EMS Trigger.
 Configure the Trigger to receive EMS Messages
 ```json
 {
-  "name": "EMSSApp",
+  "name": "ems_trigger_app",
   "type": "flogo:app",
   "version": "0.0.1",
-  "appModel": "1.0.0",
+  "description": "My flogo application description",
+  "appModel": "1.1.0",
+  "imports": [
+    "github.com/project-flogo/legacybridge",
+    "github.com/project-flogo/contrib/activity/log",
+    "github.com/project-flogo/contrib/trigger/rest",
+    "github.com/project-flogo/flow",
+    "github.com/mmussett/flogo-components/trigger/ems"
+  ],
   "triggers": [
     {
-      "id": "receive_ems_message",
+      "id": "receive_ems_trigger",
       "ref": "github.com/mmussett/flogo-components/trigger/ems",
-      "name": "Receive EMS Message",
-      "description": "EMS message handler",
       "settings": {
-        "url": "tcp://127.0.0.1:722",
         "destination": "queue.sample",
-        "user": "admin",
-        "password": ""
+        "password": "",
+        "serverUrl": "tcp://127.0.0.1:7222",
+        "user": "admin"
       },
       "handlers": [
         {
-          "action": {
-            "ref": "github.com/TIBCOSoftware/flogo-contrib/action/flow",
-            "data": {
-              "flowURI": "res://flow:subscriber"
-            },
-            "mappings": {
-              "input": [
-                {
-                  "mapTo": "message",
-                  "type": "assign",
-                  "value": "$.msgText"
-                }
-              ]
+          "settings": null,
+          "actions": [
+            {
+              "ref": "#flow",
+              "settings": {
+                "flowURI": "res://flow:simple_flow"
+              },
+              "input": {
+                "in": "=$.msgText"
+              }
             }
-          }
+          ]
         }
       ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "flow:simple_flow",
+      "data": {
+        "name": "simple_flow",
+        "metadata": {
+          "input": [
+            {
+              "name": "in",
+              "type": "string",
+              "value": "test"
+            }
+          ],
+          "output": [
+            {
+              "name": "out",
+              "type": "string"
+            }
+          ]
+        },
+        "tasks": [
+          {
+            "id": "log",
+            "name": "Log Message",
+            "activity": {
+              "ref": "#log",
+              "input": {
+                "message": "=$flow.in",
+                "addDetails": "false"
+              }
+            }
+          }
+        ],
+        "links": []
+      }
     }
   ]
 }
