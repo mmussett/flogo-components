@@ -54,90 +54,90 @@ type Output struct {
 
 func (o *Output) ToMap() map[string]interface{} {
 	return map[string]interface{}{
-		"ApiKey":                        o.ApiKey,
-		"ApiMethod":                     o.ApiMethod,
-		"Bytes":                         o.Bytes,
-		"CacheHit":                      o.CacheHit,
-		"ClientTransferTime":            o.ClientTransferTime,
-		"ConnectTime":                   o.ConnectTime,
-		"EndpointName":                  o.EndpointName,
-		"HttpMethod":                    o.HttpMethod,
-		"HttpStatus":                    o.HttpStatus,
-		"HttpVersion":                   o.HttpVersion,
-		"OauthAccesstoken":              o.OauthAccesstoken,
-		"PackageName":                   o.PackageName,
-		"PackageUuid":                   o.PackageUuid,
-		"PlanName":                      o.PlanName,
-		"PlanUuid":                      o.PlanUuid,
-		"PreTransferTime":               o.PreTransferTime,
-		"QpsThrottleValue":              o.QpsThrottleValue,
-		"QuotaValue":                    o.QuotaValue,
-		"Referrer":                      o.Referrer,
-		"RemoteTotalTime":               o.RemoteTotalTime,
-		"RequestHostName":               o.RequestHostName,
-		"RequestId":                     o.RequestId,
-		"RequestTime":                   o.RequestTime,
-		"RequestUuid":                   o.RequestUuid,
-		"ResponseString":                o.ResponseString,
-		"ServiceDefinitionEndpointUuid": o.ServiceDefinitionEndpointUuid,
-		"ServiceId":                     o.ServiceId,
-		"ServiceName":                   o.ServiceName,
-		"SrcIp":                         o.SrcIp,
-		"SslEnabled":                    o.SslEnabled,
-		"TotalRequestExecTime":          o.TotalRequestExecTime,
-		"TrafficManager":                o.TrafficManager,
-		"TrafficManagerErrorCode":       o.TrafficManagerErrorCode,
-		"Uri":                           o.Uri,
-		"UserAgent":                     o.UserAgent,
-		"LogType":                       o.LogType,
-		"IngestionTime":                 o.IngestionTime,
-		"AsCsv":                         o.AsCsv,
-		"AsObject":                      o.AsObject,
+		"api_key":                          o.ApiKey,
+		"api_method_name":                  o.ApiMethod,
+		"bytes":                            o.Bytes,
+		"cache_hit":                        o.CacheHit,
+		"client_transfer_time":             o.ClientTransferTime,
+		"connect_time":                     o.ConnectTime,
+		"endpoint_name":                    o.EndpointName,
+		"http_method":                      o.HttpMethod,
+		"http_status_code":                 o.HttpStatus,
+		"http_version":                     o.HttpVersion,
+		"oauth_access_token":               o.OauthAccesstoken,
+		"package_name":                     o.PackageName,
+		"package_uuid":                     o.PackageUuid,
+		"plan_name":                        o.PlanName,
+		"plan_uuid":                        o.PlanUuid,
+		"pre_transfer_time":                o.PreTransferTime,
+		"qps_throttle_value":               o.QpsThrottleValue,
+		"quota_value":                      o.QuotaValue,
+		"referrer":                         o.Referrer,
+		"remote_total_time":                o.RemoteTotalTime,
+		"request_host_name":                o.RequestHostName,
+		"request_id":                       o.RequestId,
+		"request_time":                     o.RequestTime,
+		"request_uuid":                     o.RequestUuid,
+		"response_string":                  o.ResponseString,
+		"service_definition_endpoint_uuid": o.ServiceDefinitionEndpointUuid,
+		"service_id":                       o.ServiceId,
+		"service_name":                     o.ServiceName,
+		"src_ip":                           o.SrcIp,
+		"ssl_enabled":                      o.SslEnabled,
+		"total_request_exec_time":          o.TotalRequestExecTime,
+		"traffic_manager":                  o.TrafficManager,
+		"traffic_manager_error_code":       o.TrafficManagerErrorCode,
+		"uri":                              o.Uri,
+		"user_agent":                       o.UserAgent,
+		"log_type":                         o.LogType,
+		"ingestion_time":                   o.IngestionTime,
+		"asCSV":                            o.AsCsv,
+		"asObject":                         o.AsObject,
 	}
 }
 
 func (o *Output) FromMap(values map[string]interface{}) error {
 
 	var err error
-	o.ApiKey, err = coerce.ToString(values["ApiKey"])
-	o.ApiMethod, err = coerce.ToString(values["ApiMethod"])
-	o.Bytes, err = coerce.ToString(values["Bytes"])
-	o.CacheHit, err = coerce.ToString(values["CacheHit"])
-	o.ClientTransferTime, err = coerce.ToString(values["ClientTransferTime"])
-	o.ConnectTime, err = coerce.ToString(values["ConnectTime"])
-	o.EndpointName, err = coerce.ToString(values["EndpointName"])
-	o.HttpMethod, err = coerce.ToString(values["HttpMethod"])
-	o.HttpStatus, err = coerce.ToString(values["HttpStatus"])
-	o.HttpVersion, err = coerce.ToString(values["HttpVersion"])
-	o.OauthAccesstoken, err = coerce.ToString(values["OauthAccesstoken"])
-	o.PackageName, err = coerce.ToString(values["PackageName"])
-	o.PackageUuid, err = coerce.ToString(values["PackageUuid"])
-	o.PlanName, err = coerce.ToString(values["PlanName"])
-	o.PlanUuid, err = coerce.ToString(values["PlanUuid"])
-	o.PreTransferTime, err = coerce.ToString(values["PreTransferTime"])
-	o.QpsThrottleValue, err = coerce.ToString(values["QpsThrottleValue"])
-	o.QuotaValue, err = coerce.ToString(values["QuotaValue"])
-	o.Referrer, err = coerce.ToString(values["Referrer"])
-	o.RemoteTotalTime, err = coerce.ToString(values["RemoteTotalTime"])
-	o.RequestHostName, err = coerce.ToString(values["RequestHostName"])
-	o.RequestId, err = coerce.ToString(values["RequestId"])
-	o.RequestTime, err = coerce.ToString(values["RequestTime"])
-	o.RequestUuid, err = coerce.ToString(values["RequestUuid"])
-	o.ResponseString, err = coerce.ToString(values["ResponseString"])
-	o.ServiceDefinitionEndpointUuid, err = coerce.ToString(values["ServiceDefinitionEndpointUuid"])
-	o.ServiceId, err = coerce.ToString(values["ServiceId"])
-	o.ServiceName, err = coerce.ToString(values["ServiceName"])
-	o.SrcIp, err = coerce.ToString(values["SrcIp"])
-	o.SslEnabled, err = coerce.ToString(values["SslEnabled"])
-	o.TotalRequestExecTime, err = coerce.ToString(values["TotalRequestExecTime"])
-	o.TrafficManager, err = coerce.ToString(values["TrafficManager"])
-	o.TrafficManagerErrorCode, err = coerce.ToString(values["TrafficManagerErrorCode"])
-	o.Uri, err = coerce.ToString(values["Uri"])
-	o.UserAgent, err = coerce.ToString(values["UserAgent"])
-	o.LogType, err = coerce.ToString(values["LogType"])
-	o.IngestionTime, err = coerce.ToString(values["IngestionTime"])
-	o.AsCsv, err = coerce.ToString(values["AsCsv"])
-	o.AsObject, err = coerce.ToString(values["AsObject"])
+	o.ApiKey, err = coerce.ToString(values["api_key"])
+	o.ApiMethod, err = coerce.ToString(values["api_method_name"])
+	o.Bytes, err = coerce.ToString(values["bytes"])
+	o.CacheHit, err = coerce.ToString(values["cache_hit"])
+	o.ClientTransferTime, err = coerce.ToString(values["client_transfer_time"])
+	o.ConnectTime, err = coerce.ToString(values["connect_time"])
+	o.EndpointName, err = coerce.ToString(values["endpoint_name"])
+	o.HttpMethod, err = coerce.ToString(values["http_method"])
+	o.HttpStatus, err = coerce.ToString(values["http_status_code"])
+	o.HttpVersion, err = coerce.ToString(values["http_version"])
+	o.OauthAccesstoken, err = coerce.ToString(values["oauth_access_token"])
+	o.PackageName, err = coerce.ToString(values["package_name"])
+	o.PackageUuid, err = coerce.ToString(values["package_uuid"])
+	o.PlanName, err = coerce.ToString(values["plan_name"])
+	o.PlanUuid, err = coerce.ToString(values["plan_uuid"])
+	o.PreTransferTime, err = coerce.ToString(values["pre_transfer_time"])
+	o.QpsThrottleValue, err = coerce.ToString(values["qps_throttle_value"])
+	o.QuotaValue, err = coerce.ToString(values["quota_value"])
+	o.Referrer, err = coerce.ToString(values["referrer"])
+	o.RemoteTotalTime, err = coerce.ToString(values["remote_total_time"])
+	o.RequestHostName, err = coerce.ToString(values["request_host_name"])
+	o.RequestId, err = coerce.ToString(values["request_id"])
+	o.RequestTime, err = coerce.ToString(values["request_time"])
+	o.RequestUuid, err = coerce.ToString(values["request_uuid"])
+	o.ResponseString, err = coerce.ToString(values["response_string"])
+	o.ServiceDefinitionEndpointUuid, err = coerce.ToString(values["service_definition_endpoint_uuid"])
+	o.ServiceId, err = coerce.ToString(values["service_id"])
+	o.ServiceName, err = coerce.ToString(values["service_name"])
+	o.SrcIp, err = coerce.ToString(values["src_ip"])
+	o.SslEnabled, err = coerce.ToString(values["ssl_enabled"])
+	o.TotalRequestExecTime, err = coerce.ToString(values["total_request_exec_time"])
+	o.TrafficManager, err = coerce.ToString(values["traffic_manager"])
+	o.TrafficManagerErrorCode, err = coerce.ToString(values["traffic_manager_error_code"])
+	o.Uri, err = coerce.ToString(values["uri"])
+	o.UserAgent, err = coerce.ToString(values["user_agent"])
+	o.LogType, err = coerce.ToString(values["log_type"])
+	o.IngestionTime, err = coerce.ToString(values["ingestion_time"])
+	o.AsCsv, err = coerce.ToString(values["asCSV"])
+	o.AsObject, err = coerce.ToString(values["asObject"])
 	if err != nil {
 		return err
 	}
