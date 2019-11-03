@@ -1,75 +1,61 @@
 package ecls
 
 import (
-	"context"
-	"io/ioutil"
-
 	"encoding/json"
-	"github.com/TIBCOSoftware/flogo-lib/core/action"
-	"github.com/TIBCOSoftware/flogo-lib/core/data"
-	"github.com/TIBCOSoftware/flogo-lib/core/trigger"
+	"github.com/project-flogo/core/support"
 	"testing"
+
+	"github.com/project-flogo/core/action"
+	"github.com/project-flogo/core/support/test"
+	"github.com/project-flogo/core/trigger"
+	"github.com/stretchr/testify/assert"
 )
 
-var jsonMetadata = getJSONMetadata()
-
-func getJSONMetadata() string {
-	jsonMetadataBytes, err := ioutil.ReadFile("trigger.json")
-	if err != nil {
-		panic("No Json Metadata found for trigger.json path")
-	}
-	return string(jsonMetadataBytes)
-}
-
-// Run Once, Start Immediately
 const testConfig string = `{
-  "name": "ecls",
-  "settings": {
-		"url": "wss://logstream-api.mashery.com/ecls/subscribe/567a829c-6733-416e-86a1-f74189687708/3782cd3e-33f3-4699-930e-d48d3b2e9688?key=qUtedQriyXWfTGLBvESVCubrGtxycJRAGGl"
-  },
-  "handlers": [
-    {
-      "flowURI": "",
-      "settings": {
-        "handler_setting": "xxx"
-      }
-    }
-  ]
-}`
+	"id": "flogo-ecls-trigger",
+	"ref": "github.com/mmussett/flogo-components/trigger/ecls",
+	"settings": {
+      "url": "wss://logstream-api.mashery.com/ecls/subscribe/c7e8e2d5-ff91-42eb-9885-10f2aa2cc3f5/b6d350b1-fb23-4059-a8ee-578c88531fc8?key=bBhzYwNuMRKrMHDqmjmtsqRFKFpCvNhmuue"
+	},
+	"handlers": [
+	  {
+			"action":{
+				"id":"dummy"
+			},
+			"settings": {
+		  	
+			}
+	  }
+	]
+	
+  }`
 
-type TestRunner struct {
+func TestTrigger_Register(t *testing.T) {
+
+	ref := support.GetRef(&Trigger{})
+	f := trigger.GetFactory(ref)
+	assert.NotNil(t, f)
+
 }
 
-var Test action.Runner
+func TestEclsTrigger_Initialize(t *testing.T) {
+	f := &Factory{}
 
-// Run implements action.Runner.Run
-func (tr *TestRunner) Run(context context.Context, action action.Action, uri string, options interface{}) (code int, data interface{}, err error) {
-	log.Infof("Ran Action (Run): %v", uri)
-	return 0, nil, nil
-}
+	config := &trigger.Config{}
+	err := json.Unmarshal([]byte(testConfig), config)
+	assert.Nil(t, err)
 
-func (tr *TestRunner) RunAction(ctx context.Context, act action.Action, options map[string]interface{}) (results map[string]*data.Attribute, err error) {
-	log.Infof("Ran Action (RunAction): %v", act)
-	return nil, nil
-}
+	actions := map[string]action.Action{"dummy": test.NewDummyAction(func() {
+		//do nothing
+	})}
 
-func (tr *TestRunner) Execute(ctx context.Context, act action.Action, inputs map[string]*data.Attribute) (results map[string]*data.Attribute, err error) {
-	log.Infof("Ran Action (Execute): %v", act)
-	return nil, nil
-}
+	trg, err := test.InitTrigger(f, config, actions)
+	assert.Nil(t, err)
+	assert.NotNil(t, trg)
 
-func TestTrigger(t *testing.T) {
-
-	log.Info("Testing Trigger")
-	config := trigger.Config{}
-	json.Unmarshal([]byte(testConfig), &config)
-
-	factory := &wsTriggerFactory{}
-
-	trigger := factory.New(&config)
-
-	trigger.Start()
-
-	defer trigger.Stop()
+	err = trg.Start()
+	assert.Nil(t, err)
+	err = trg.Stop()
+	assert.Nil(t, err)
 
 }

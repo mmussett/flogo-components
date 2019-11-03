@@ -10,7 +10,9 @@
   "settings":[
     {
       "name": "url",
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "description": "WebSocket URL"
     }
   ],
   "outputs": [
@@ -174,10 +176,6 @@
   ],
   "handler": {
     "settings": [
-      {
-        "name": "handler_setting",
-        "type": "string"
-      }
     ]
   }
  }
