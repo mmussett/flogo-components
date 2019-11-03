@@ -100,43 +100,157 @@ func (o *Output) FromMap(values map[string]interface{}) error {
 
 	var err error
 	o.ApiKey, err = coerce.ToString(values["api_key"])
+	if err != nil {
+		return err
+	}
 	o.ApiMethod, err = coerce.ToString(values["api_method_name"])
+	if err != nil {
+		return err
+	}
 	o.Bytes, err = coerce.ToString(values["bytes"])
+	if err != nil {
+		return err
+	}
 	o.CacheHit, err = coerce.ToString(values["cache_hit"])
+	if err != nil {
+		return err
+	}
 	o.ClientTransferTime, err = coerce.ToString(values["client_transfer_time"])
+	if err != nil {
+		return err
+	}
 	o.ConnectTime, err = coerce.ToString(values["connect_time"])
+	if err != nil {
+		return err
+	}
 	o.EndpointName, err = coerce.ToString(values["endpoint_name"])
+	if err != nil {
+		return err
+	}
 	o.HttpMethod, err = coerce.ToString(values["http_method"])
+	if err != nil {
+		return err
+	}
 	o.HttpStatus, err = coerce.ToString(values["http_status_code"])
+	if err != nil {
+		return err
+	}
 	o.HttpVersion, err = coerce.ToString(values["http_version"])
+	if err != nil {
+		return err
+	}
 	o.OauthAccesstoken, err = coerce.ToString(values["oauth_access_token"])
+	if err != nil {
+		return err
+	}
 	o.PackageName, err = coerce.ToString(values["package_name"])
+	if err != nil {
+		return err
+	}
 	o.PackageUuid, err = coerce.ToString(values["package_uuid"])
+	if err != nil {
+		return err
+	}
 	o.PlanName, err = coerce.ToString(values["plan_name"])
+	if err != nil {
+		return err
+	}
 	o.PlanUuid, err = coerce.ToString(values["plan_uuid"])
+	if err != nil {
+		return err
+	}
 	o.PreTransferTime, err = coerce.ToString(values["pre_transfer_time"])
+	if err != nil {
+		return err
+	}
 	o.QpsThrottleValue, err = coerce.ToString(values["qps_throttle_value"])
+	if err != nil {
+		return err
+	}
 	o.QuotaValue, err = coerce.ToString(values["quota_value"])
+	if err != nil {
+		return err
+	}
 	o.Referrer, err = coerce.ToString(values["referrer"])
+	if err != nil {
+		return err
+	}
 	o.RemoteTotalTime, err = coerce.ToString(values["remote_total_time"])
+	if err != nil {
+		return err
+	}
 	o.RequestHostName, err = coerce.ToString(values["request_host_name"])
+	if err != nil {
+		return err
+	}
 	o.RequestId, err = coerce.ToString(values["request_id"])
+	if err != nil {
+		return err
+	}
 	o.RequestTime, err = coerce.ToString(values["request_time"])
+	if err != nil {
+		return err
+	}
 	o.RequestUuid, err = coerce.ToString(values["request_uuid"])
+	if err != nil {
+		return err
+	}
 	o.ResponseString, err = coerce.ToString(values["response_string"])
+	if err != nil {
+		return err
+	}
 	o.ServiceDefinitionEndpointUuid, err = coerce.ToString(values["service_definition_endpoint_uuid"])
+	if err != nil {
+		return err
+	}
 	o.ServiceId, err = coerce.ToString(values["service_id"])
+	if err != nil {
+		return err
+	}
 	o.ServiceName, err = coerce.ToString(values["service_name"])
+	if err != nil {
+		return err
+	}
 	o.SrcIp, err = coerce.ToString(values["src_ip"])
+	if err != nil {
+		return err
+	}
 	o.SslEnabled, err = coerce.ToString(values["ssl_enabled"])
+	if err != nil {
+		return err
+	}
 	o.TotalRequestExecTime, err = coerce.ToString(values["total_request_exec_time"])
+	if err != nil {
+		return err
+	}
 	o.TrafficManager, err = coerce.ToString(values["traffic_manager"])
+	if err != nil {
+		return err
+	}
 	o.TrafficManagerErrorCode, err = coerce.ToString(values["traffic_manager_error_code"])
+	if err != nil {
+		return err
+	}
 	o.Uri, err = coerce.ToString(values["uri"])
+	if err != nil {
+		return err
+	}
 	o.UserAgent, err = coerce.ToString(values["user_agent"])
+	if err != nil {
+		return err
+	}
 	o.LogType, err = coerce.ToString(values["log_type"])
+	if err != nil {
+		return err
+	}
 	o.IngestionTime, err = coerce.ToString(values["ingestion_time"])
+	if err != nil {
+		return err
+	}
 	o.AsCsv, err = coerce.ToString(values["asCSV"])
+	if err != nil {
+		return err
+	}
 	o.AsObject, err = coerce.ToString(values["asObject"])
 	if err != nil {
 		return err
