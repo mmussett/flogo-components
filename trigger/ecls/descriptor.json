@@ -6,7 +6,6 @@
   "title": "Receive Mashery ECLS Message",
   "description": "ECLS message handler",
   "author": "Mark Mussett <mmussett@tibco.com>",
-  "homepage": "https://github.com/mmussett/flogo-components/tree/master/trigger/ecls",
   "settings":[
     {
       "name": "url",
