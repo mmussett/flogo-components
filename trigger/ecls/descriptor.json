@@ -15,7 +15,7 @@
       "description": "WebSocket URL"
     }
   ],
-  "outputs": [
+  "output": [
     {
       "name": "api_key",
       "type": "string"
