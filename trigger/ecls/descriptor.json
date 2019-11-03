@@ -1,6 +1,6 @@
 {
   "name": "ecls",
-  "version": "0.0.6",
+  "version": "0.9.0",
   "type": "flogo:trigger",
   "ref": "github.com/mmussett/flogo-components/trigger/ecls",
   "title": "Receive Mashery ECLS Message",
@@ -18,159 +18,198 @@
   "output": [
     {
       "name": "api_key",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "api_method_name",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "bytes",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "cache_hit",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "client_transfer_time",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "connect_time",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "endpoint_name",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "http_method",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "http_status_code",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "http_version",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "oauth_access_token",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "package_name",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "package_uuid",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "plan_name",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "plan_uuid",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "pre_transfer_time",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "qps_throttle_value",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "quota_value",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "referrer",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "remote_total_time",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "request_host_name",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "request_id",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "request_time",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "request_uuid",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "response_string",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "service_definition_endpoint_uuid",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "service_id",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "service_name",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "src_ip",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "ssl_enabled",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "total_request_exec_time",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "traffic_manager",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "traffic_manager_error_code",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "uri",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "user_agent",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "log_type",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "ingestion_time",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "asCSV",
-      "type": "string"
+      "type": "string",
+      "description": ""
     },
     {
       "name": "asObject",
-      "type": "object"
+      "type": "object",
+      "description": ""
     }
 
   ],
