@@ -204,13 +204,7 @@
       "name": "asCSV",
       "type": "string",
       "description": ""
-    },
-    {
-      "name": "asObject",
-      "type": "object",
-      "description": ""
     }
-
   ],
   "handler": {
     "settings": [

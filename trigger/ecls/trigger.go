@@ -229,7 +229,7 @@ func (t *Trigger) startHandlers() error {
 					trgData["log_type"] = eclsMessage.Data[0].LogType
 					trgData["ingestion_time"] = eclsMessage.Data[0].IngestionTime
 					trgData["asCSV"] = eclsMessage.flatten()
-					trgData["asObject"] = s
+					//trgData["asObject"] = s
 
 					for _, handler := range t.Handlers {
 						results, err := handler.Handle(context.Background(), trgData)

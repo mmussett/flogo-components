@@ -52,7 +52,6 @@ type Output struct {
 	LogType                       string `md:"log_type,required"`
 	IngestionTime                 string `md:"ingestion_time,required"`
 	AsCsv                         string `md:"asCSV,required"`
-	AsObject                      string `md:"asObject,required"`
 }
 
 func (o *Output) ToMap() map[string]interface{} {
@@ -95,7 +94,6 @@ func (o *Output) ToMap() map[string]interface{} {
 		"log_type":                         o.LogType,
 		"ingestion_time":                   o.IngestionTime,
 		"asCSV":                            o.AsCsv,
-		"asObject":                         o.AsObject,
 	}
 }
 
@@ -251,10 +249,6 @@ func (o *Output) FromMap(values map[string]interface{}) error {
 		return err
 	}
 	o.AsCsv, err = coerce.ToString(values["asCSV"])
-	if err != nil {
-		return err
-	}
-	o.AsObject, err = coerce.ToString(values["asObject"])
 	if err != nil {
 		return err
 	}
