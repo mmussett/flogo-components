@@ -10,6 +10,9 @@ type Settings struct {
 type HandlerSettings struct {
 }
 
+type Reply struct {
+}
+
 type Output struct {
 	ApiKey                        string `md:"api_key,required"`
 	ApiMethod                     string `md:"api_method_name"`

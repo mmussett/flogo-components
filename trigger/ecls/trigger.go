@@ -61,7 +61,7 @@ type Message struct {
 	} `json:"data"`
 }
 
-var triggerMd = trigger.NewMetadata(&Settings{}, &Output{})
+var triggerMd = trigger.NewMetadata(&Settings{}, &HandlerSettings{}, &Output{}, &Reply{})
 
 func init() {
 	_ = trigger.Register(&Trigger{}, &Factory{})
