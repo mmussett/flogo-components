@@ -178,7 +178,7 @@ func (t *Trigger) startHandlers() error {
 				log.Debug("acknowledgement received")
 			} else {
 
-				log.Info(s)
+				log.Debug(s)
 
 				var eclsMessage Message
 
