@@ -129,27 +129,12 @@ func (t *Trigger) startHandlers() error {
 	// start the trigger
 	log.Debug("Start")
 
-	/*	// Get parms
-		wsUrl := t.config.GetSetting("url")
+	go t.websocketHandler()
 
-		// Parse the raw url string
-		u, err := url.Parse(wsUrl)
-		if err != nil {
-			log.Errorf("Error parsing url %v", err)
-			return nil
-		}
+	return nil
+}
 
-		// Connect to Web Socket
-		tlsConfig := &tls.Config{InsecureSkipVerify: true}
-		dialer := websocket.Dialer{TLSClientConfig: tlsConfig, EnableCompression: true}
-		conn, resp, err := dialer.Dial(u.String(), nil)
-		if err != nil {
-			log.Errorf("Handshake failed with status %d", resp.StatusCode)
-			return nil
-		}
-
-		log.Debugf("WebSocket connection established to: [%s]", u.String())
-	*/
+func (t *Trigger) websocketHandler() {
 
 	conn := t.Connection.conn
 
@@ -254,7 +239,7 @@ func (t *Trigger) startHandlers() error {
 			err := conn.WriteMessage(websocket.TextMessage, []byte(t.String()))
 			if err != nil {
 				log.Error("write:", err)
-				return nil
+				return
 			}
 		case <-interrupt:
 			log.Debug("interrupt")
@@ -263,19 +248,18 @@ func (t *Trigger) startHandlers() error {
 			err := conn.WriteMessage(websocket.CloseMessage, websocket.FormatCloseMessage(websocket.CloseNormalClosure, ""))
 			if err != nil {
 				log.Error("write close:", err)
-				return nil
+				return
 			}
 			select {
 			case <-done:
 			case <-time.After(time.Second):
 			}
 			_ = conn.Close()
-			return nil
+			return
 		}
 	}
 
 }
-
 func (t *Message) flatten() string {
 
 	v := reflect.ValueOf(t.Data[0])
