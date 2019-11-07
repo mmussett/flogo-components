@@ -11,20 +11,45 @@
       "name": "serverURL",
       "type": "string",
       "description": "Server URL",
-      "required": true
+      "required": true,
+      "value": "tcp://localhost:7222"
     },
     {
       "name": "destination",
-      "type": "string"
+      "description": "Destination name",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "destinationType",
+      "description": "Type of destination",
+      "type": "string",
+      "allowed": [
+        "queue",
+        "topic"
+      ],
+      "value": "queue"
+    },
+    {
+      "name": "timeout",
+      "type": "string",
+      "required": true,
+      "description": "Wait time for blocking receive",
+      "value": "0"
     },
     {
       "name": "username",
-      "type": "string"
-
+      "description": "Username",
+      "type": "string",
+      "required": true,
+      "value": "admin"
     },
     {
       "name": "password",
-      "type": "string"
+      "description": "User password",
+      "type": "string",
+      "required": true,
+      "value": ""
     }
   ],
   "output": [

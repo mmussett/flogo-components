@@ -78,7 +78,7 @@ func (t *Trigger) startHandlers() error {
 
 	for {
 
-		msgText, err := t.Client.Receive(t.settings.Destination)
+		msgText, _, err := t.Client.Receive(t.settings.Destination, t.settings.DestinationType, t.settings.Timeout)
 		if err != nil {
 
 		}
