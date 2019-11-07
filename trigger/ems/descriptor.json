@@ -31,13 +31,6 @@
       "value": "queue"
     },
     {
-      "name": "timeout",
-      "type": "string",
-      "required": true,
-      "description": "Wait time for blocking receive",
-      "value": "0"
-    },
-    {
       "name": "username",
       "description": "Username",
       "type": "string",

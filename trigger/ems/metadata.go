@@ -4,7 +4,6 @@ type Settings struct {
 	ServerURL       string `md:"serverURL,required"`
 	Destination     string `md:"destination"`
 	DestinationType string `md:"destinationType"`
-	Timeout         int    `md:"timeout"`
 	Username        string `md:"username"`
 	Password        string `md:"password"`
 }

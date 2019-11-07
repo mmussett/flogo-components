@@ -69,21 +69,35 @@ func (t *Trigger) Start() error {
 
 // Stop implements util.Managed.Stop
 func (t *Trigger) Stop() error {
-	t.Client.Disconnect()
 
+	// start the trigger
+	log.Debug("Stop...")
+	t.Client.Disconnect()
+	log.Debug("Stop done")
 	return nil
 }
 
 func (t *Trigger) startHandlers() error {
 
+	// start the trigger
+	log.Debug("Start...")
+	go t.emsClientReceiverHandler()
+	log.Debug("Start done")
+	return nil
+}
+
+func (t *Trigger) emsClientReceiverHandler() {
+
 	for {
 
-		msgText, timeout, err := t.Client.Receive(t.settings.Destination, t.settings.DestinationType, t.settings.Timeout)
-		if err != nil {
+		msgText, timeout, err := t.Client.Receive(t.settings.Destination, t.settings.DestinationType, 0)
+		if err == nil {
+
 			if !timeout {
 				out := &Output{}
-
 				out.Data = msgText
+
+				log.Debugf("Received Message Text %v ", msgText)
 
 				for _, handler := range t.Handlers {
 
@@ -98,5 +112,6 @@ func (t *Trigger) startHandlers() error {
 		}
 
 	}
-	return nil
+
+	return
 }
