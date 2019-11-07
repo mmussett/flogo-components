@@ -131,7 +131,7 @@ Configure the Trigger to receive EMS Messages
         "destination": "queue.sample",
         "destinationType": "queue",
         "password": "",
-        "serverUrl": "tcp://127.0.0.1:7222",
+        "serverURL": "tcp://127.0.0.1:7222",
         "user": "admin"
       },
       "handlers": [
