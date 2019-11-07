@@ -78,20 +78,23 @@ func (t *Trigger) startHandlers() error {
 
 	for {
 
-		msgText, _, err := t.Client.Receive(t.settings.Destination, t.settings.DestinationType, t.settings.Timeout)
+		msgText, timeout, err := t.Client.Receive(t.settings.Destination, t.settings.DestinationType, t.settings.Timeout)
 		if err != nil {
+			if !timeout {
+				out := &Output{}
 
-		}
-		out := &Output{}
+				out.Data = msgText
 
-		out.Data = msgText
+				for _, handler := range t.Handlers {
 
-		for _, handler := range t.Handlers {
-
-			_, err := handler.Handle(context.Background(), out)
-			if err != nil {
-				log.Errorf("Error starting action: %v", err)
+					_, err := handler.Handle(context.Background(), out)
+					if err != nil {
+						log.Errorf("Error starting action: %v", err)
+					}
+				}
 			}
+		} else {
+			log.Error(err)
 		}
 
 	}
