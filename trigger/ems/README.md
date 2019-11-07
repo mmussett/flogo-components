@@ -52,6 +52,10 @@ Outputs and Endpoint:
       "type": "string"
     },
     {
+      "name": "destinationType",
+      "type": "string"
+    },
+    {
       "name": "user",
       "type": "string"
     },    
@@ -81,6 +85,7 @@ Outputs and Endpoint:
 |:----------|:---------------|
 | serverUrl  | EMS Server url |
 | destination | EMS Destination to receive from |
+| destinationType | Either queue or topic |
 | user | EMS connection username |
 | password | EMS connection password |
 
@@ -124,6 +129,7 @@ Configure the Trigger to receive EMS Messages
       "ref": "github.com/mmussett/flogo-components/trigger/ems",
       "settings": {
         "destination": "queue.sample",
+        "destinationType": "queue",
         "password": "",
         "serverUrl": "tcp://127.0.0.1:7222",
         "user": "admin"
