@@ -39,7 +39,7 @@ func TestCreate(t *testing.T) {
 }
 
 func TestSendOnly(t *testing.T) {
-	_, err := net.Dial("tcp", "127.0.0.1:7222")
+	_, err := net.Dial("tcp", "10.0.0.19:7222")
 	if err != nil {
 		t.Log("EMS Server is not available, skipping test...")
 		return
@@ -61,6 +61,7 @@ func TestSendOnly(t *testing.T) {
 	tc.SetInput(ivServerURL, "tcp://127.0.0.1:7222")
 	tc.SetInput(ivUser, "admin")
 	tc.SetInput(ivPassword, "")
+	tc.SetInput(ivDestinationType, "queue")
 	tc.SetInput(ivDeliveryDelay, 0)
 	tc.SetInput(ivDeliveryMode, "non_persistent")
 	tc.SetInput(ivExpiration, 10000)
@@ -104,6 +105,7 @@ func TestSendReceive(t *testing.T) {
 	tc.SetInput(ivServerURL, "tcp://127.0.0.1:7222")
 	tc.SetInput(ivUser, "admin")
 	tc.SetInput(ivPassword, "")
+	tc.SetInput(ivDestinationType, "queue")
 	tc.SetInput(ivDeliveryDelay, 0)
 	tc.SetInput(ivDeliveryMode, "non_persistent")
 	tc.SetInput(ivExpiration, 10000)

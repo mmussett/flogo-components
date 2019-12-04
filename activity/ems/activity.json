@@ -25,6 +25,16 @@
       "required": true
     },
     {
+      "name": "destinationType",
+      "description": "Type of destination",
+      "type": "string",
+      "allowed": [
+        "queue",
+        "topic"
+      ],
+      "value": "queue"
+    },
+    {
       "name": "serverUrl",
       "type": "string",
       "required": true

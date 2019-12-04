@@ -15,16 +15,17 @@ import (
 )
 
 const (
-	ivContent       = "content"
-	ivDestination   = "destination"
-	ivServerURL     = "serverUrl"
-	ivUser          = "user"
-	ivPassword      = "password"
-	ivDeliveryDelay = "deliveryDelay"
-	ivDeliveryMode  = "deliveryMode"
-	ivExpiration    = "expiration"
-	ivTracing       = "tracing"
-	ivExchangeMode  = "exchangeMode"
+	ivContent         = "content"
+	ivDestination     = "destination"
+	ivDestinationType = "destinationType"
+	ivServerURL       = "serverUrl"
+	ivUser            = "user"
+	ivPassword        = "password"
+	ivDeliveryDelay   = "deliveryDelay"
+	ivDeliveryMode    = "deliveryMode"
+	ivExpiration      = "expiration"
+	ivTracing         = "tracing"
+	ivExchangeMode    = "exchangeMode"
 
 	ovResponse = "response"
 	ovTracing  = "tracing"
@@ -32,6 +33,8 @@ const (
 
 var (
 	errorDestinationIsNotAString         = errors.New("destination is not a string")
+	errorDestinationTypeIsNotAString     = errors.New("destinationType is not a string")
+	errorInvalidDestinationType          = errors.New("destinationType is not QUEUE or TOPIC")
 	errorInvalidEmptyDestinationToSendTo = errors.New("invalid empty destination to send to")
 	errorDeliveryDelayIsNotANumber       = errors.New("delivery delay is not a number")
 	errorDeliveryModeIsNotAString        = errors.New("delivery mode is not a string")
@@ -134,6 +137,13 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	}
 	setTag("destination", destination)
 
+	destinationType, ok := context.GetInput(ivDestinationType).(string)
+	if !ok {
+		logError(errorDestinationTypeIsNotAString.Error())
+		return false, errorDestinationTypeIsNotAString
+	}
+	setTag("destinationType", destinationType)
+
 	deliveryDelay, ok := context.GetInput(ivDeliveryDelay).(int)
 	if !ok {
 		logError(errorDeliveryDelayIsNotANumber.Error())
@@ -159,13 +169,13 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	}
 
 	if exchangeMode == "send-only" {
-		err = client.Send(destination, content, deliveryDelay, deliveryMode, expiration)
+		err = client.Send(destination, "QUEUE", content, deliveryDelay, deliveryMode, expiration)
 		if err != nil {
 			logError("Timeout occurred while trying to send to destination '%s'", destination)
 			return false, err
 		}
 	} else {
-		response, err := client.SendReceive(destination, content, deliveryMode, expiration)
+		response, err := client.SendReceive(destination, "QUEUE", content, deliveryMode, expiration)
 		if err != nil {
 			logError("Timeout occurred while trying to send to destination '%s'", destination)
 			return false, err
