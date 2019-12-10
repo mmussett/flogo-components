@@ -50,6 +50,7 @@ func TestEval(t *testing.T) {
 	//setup attrs
 	tc.SetInput(ivUrl, "pulsar://localhost:6650")
 	tc.SetInput(ivTopic, "topic.sample")
+	tc.SetInput(ivSendTimeout,"10")
 	tc.SetInput(ivPayload, "Hello, World")
 
 	act.Eval(tc)

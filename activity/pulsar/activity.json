@@ -23,6 +23,11 @@
       "required": true
     },
     {
+      "name": "sendTimeout",
+      "type": "integer",
+      "required": true
+    },
+    {
       "name": "payload",
       "type": "string",
       "required": true

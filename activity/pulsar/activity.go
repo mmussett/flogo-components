@@ -4,6 +4,7 @@ import (
 	ctx "context"
 	"errors"
 	"fmt"
+	"time"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
@@ -14,6 +15,7 @@ import (
 const (
 	ivUrl     = "url"
 	ivTopic   = "topic"
+	ivSendTimeout = "sendTimeout"
 	ivPayload = "payload"
 	ivTracing = "tracing"
 
@@ -77,6 +79,10 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		return false, errorUrlIsNotAString
 	}
 
+	duration, _ := context.GetInput(ivSendTimeout).(int)
+	sendTimeout := time.Duration(duration) * time.Second
+
+
 	client, err := pulsar.NewClient(pulsar.ClientOptions{
 		URL: url,
 	})
@@ -87,6 +93,7 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 	producer, err := client.CreateProducer(pulsar.ProducerOptions{
 		Topic: topic,
+		SendTimeout: sendTimeout,
 
 	})
 

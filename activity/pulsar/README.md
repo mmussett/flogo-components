@@ -31,6 +31,11 @@ Inputs and Outputs:
       "required": true
     },
     {
+      "name": "sendTimeout",
+      "type": "integer",
+      "required": true
+    },
+    {
       "name": "payload",
       "type": "string",
       "required": true
@@ -60,6 +65,7 @@ Inputs and Outputs:
 |:------------|:---------------|
 | url   | The Pulsar server URL e.g. pulsar://localhost:6650 |
 | topic     | The Pulsar topic to publish the payload to |
+| sendTimeout | The time (in seconds) to block waiting on acknowledgement from Broker |
 | payload | The payload for the message  |
 
 
@@ -87,10 +93,20 @@ Inputs and Outputs:
       "type": "string"
     },
     {
+      "name": "sendTimeout",
+      "type": "integer",
+      "required": true
+    },
+    {
       "name": "payload",
       "value": "Hello, World",
       "type": "string"
-    }
+    },
+    {
+      "name": "tracing",
+      "value": false,
+      "type": "any"
+    }   
   ],
   "inputMappings": [
     {

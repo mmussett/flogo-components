@@ -4,6 +4,7 @@ require (
 	github.com/TIBCOSoftware/flogo-contrib v0.5.8
 	github.com/TIBCOSoftware/flogo-lib v0.5.8
 	github.com/apache/pulsar-client-go v0.0.0-20191210014735-e65b4795a592
+	github.com/aws/aws-sdk-go v1.25.50
 	github.com/frankban/quicktest v1.7.2 // indirect
 	github.com/golang/protobuf v1.3.2 // indirect
 	github.com/klauspost/compress v1.9.4 // indirect
