@@ -87,11 +87,13 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 	producer, err := client.CreateProducer(pulsar.ProducerOptions{
 		Topic: topic,
+
 	})
 
 	payload, _ := context.GetInput(ivPayload).(string)
 
 	ctx := ctx.Background()
+
 
 	err = producer.Send(ctx, &pulsar.ProducerMessage{
 		Payload: []byte(payload),
