@@ -17,8 +17,8 @@
       "ref": "github.com/mmussett/flogo-components/trigger/ems",
       "settings": {
         "serverURL": "tcp://127.0.0.1:7222",
-        "destination": "queue.sample",
-        "destinationType": "queue",
+        "destination": "topic.sample",
+        "destinationType": "topic",
         "password": "",
         "user": "admin"
       },
