@@ -38,8 +38,9 @@ func TestCreate(t *testing.T) {
 	}
 }
 
-func TestSendOnly(t *testing.T) {
-	_, err := net.Dial("tcp", "10.0.0.19:7222")
+func TestReceiveOnly(t *testing.T) {
+
+	_, err := net.Dial("tcp", "127.0.0.1:7222")
 	if err != nil {
 		t.Log("EMS Server is not available, skipping test...")
 		return
@@ -65,6 +66,54 @@ func TestSendOnly(t *testing.T) {
 	tc.SetInput(ivDeliveryDelay, 0)
 	tc.SetInput(ivDeliveryMode, "non_persistent")
 	tc.SetInput(ivExpiration, 10000)
+	tc.SetInput(ivTimeout,10000)
+	tc.SetInput(ivExchangeMode, "receive-only")
+
+	span := opentracing.StartSpan("test")
+	ctx := opentracing.ContextWithSpan(context.Background(), span)
+	tc.SetInput(ivTracing, ctx)
+	defer span.Finish()
+
+	act.Eval(tc)
+
+	msg := tc.GetOutput(ovResponse)
+	t.Log(msg)
+	//check result attr
+	tracing := tc.GetOutput(ovTracing)
+	if tracing == nil {
+		t.Error("tracing is nil")
+	}
+
+}
+
+func TestSendOnly(t *testing.T) {
+	_, err := net.Dial("tcp", "127.0.0.1:7222")
+	if err != nil {
+		t.Log("EMS Server is not available, skipping test...")
+		return
+	}
+
+	defer func() {
+		if r := recover(); r != nil {
+			t.Failed()
+			t.Errorf("panic during execution: %v", r)
+		}
+	}()
+
+	act := NewActivity(getActivityMetadata())
+	tc := test.NewTestActivityContext(getActivityMetadata())
+
+	//setup attrs
+	tc.SetInput(ivContent, `{"test": "hello world"}`)
+	tc.SetInput(ivDestination, "queue.sample")
+	tc.SetInput(ivServerURL, "tcp://127.0.0.1:7222")
+	tc.SetInput(ivUser, "admin")
+	tc.SetInput(ivPassword, "")
+	tc.SetInput(ivDestinationType, "queue")
+	tc.SetInput(ivDeliveryDelay, 0)
+	tc.SetInput(ivDeliveryMode, "non_persistent")
+	tc.SetInput(ivExpiration, 1000000)
+	tc.SetInput(ivTimeout,10000)
 	tc.SetInput(ivExchangeMode, "send-only")
 
 	span := opentracing.StartSpan("test")
@@ -109,6 +158,7 @@ func TestSendReceive(t *testing.T) {
 	tc.SetInput(ivDeliveryDelay, 0)
 	tc.SetInput(ivDeliveryMode, "non_persistent")
 	tc.SetInput(ivExpiration, 10000)
+	tc.SetInput(ivTimeout,10000)
 	tc.SetInput(ivExchangeMode, "send-receive")
 
 	span := opentracing.StartSpan("test")
@@ -118,6 +168,8 @@ func TestSendReceive(t *testing.T) {
 
 	act.Eval(tc)
 
+	msg := tc.GetOutput(ovResponse)
+	t.Log(msg)
 	//check result attr
 	tracing := tc.GetOutput(ovTracing)
 	if tracing == nil {

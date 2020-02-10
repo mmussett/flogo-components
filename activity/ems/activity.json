@@ -53,7 +53,7 @@
       "name": "exchangeMode",
       "type": "string",
       "required": true,
-      "allowed": ["send-only","send-receive"]
+      "allowed": ["send-only","send-receive","receive-only"]
     },
     {
       "name": "deliveryDelay",
@@ -68,6 +68,11 @@
     },
     {
       "name": "expiration",
+      "type": "integer",
+      "required": true
+    },
+    {
+      "name": "timeout",
       "type": "integer",
       "required": true
     },

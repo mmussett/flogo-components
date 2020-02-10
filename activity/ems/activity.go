@@ -24,6 +24,7 @@ const (
 	ivDeliveryDelay   = "deliveryDelay"
 	ivDeliveryMode    = "deliveryMode"
 	ivExpiration      = "expiration"
+	ivTimeout         = "timeout"
 	ivTracing         = "tracing"
 	ivExchangeMode    = "exchangeMode"
 
@@ -40,6 +41,7 @@ var (
 	errorDeliveryModeIsNotAString        = errors.New("delivery mode is not a string")
 	errorExpirationIsNotANumber          = errors.New("expiration is not a number")
 	errorExchangeModeIsNotAString        = errors.New("exchange mode is not a string")
+	errorTimoutIsNotANumber				 = errors.New("timeout is not a number")
 )
 
 var log = logger.GetLogger("activity-tibco-ems")
@@ -156,6 +158,12 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		return false, errorExpirationIsNotANumber
 	}
 
+	timeout, ok := context.GetInput(ivTimeout).(int)
+	if !ok {
+		logError(errorTimoutIsNotANumber.Error())
+		return false, errorExpirationIsNotANumber
+	}
+
 	deliveryMode, ok := context.GetInput(ivDeliveryMode).(string)
 	if !ok {
 		logError(errorDeliveryModeIsNotAString.Error())
@@ -168,14 +176,15 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		return false, errorDestinationIsNotAString
 	}
 
-	if exchangeMode == "send-only" {
-		err = client.Send(destination, "QUEUE", content, deliveryDelay, deliveryMode, expiration)
+	switch exchangeMode {
+	case "send-only":
+		err = client.Send(destination, destinationType, content, deliveryDelay, deliveryMode, expiration)
 		if err != nil {
 			logError("Timeout occurred while trying to send to destination '%s'", destination)
 			return false, err
 		}
-	} else {
-		response, err := client.SendReceive(destination, "QUEUE", content, deliveryMode, expiration)
+	case "send-receive":
+		response, err := client.SendReceive(destination, destinationType, content, deliveryMode, expiration)
 		if err != nil {
 			logError("Timeout occurred while trying to send to destination '%s'", destination)
 			return false, err
@@ -183,8 +192,20 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 		log.Debugf("Response payload: %s", response)
 		context.SetOutput(ovResponse, response)
+	case "receive-only":
+
+		response, _, err := client.Receive(destination,destinationType,timeout)
+		if err != nil {
+			logError("Timeout occurred while trying to receive from destination '%s",destination)
+			return false, err
+		}
+		log.Debugf("Response payload: %s", response)
+
+		context.SetOutput(ovResponse, response)
 
 	}
+
+
 
 	return true, nil
 }
