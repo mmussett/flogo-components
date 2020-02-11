@@ -3,12 +3,13 @@ package statsd
 import (
 	"errors"
 	"fmt"
+	"strconv"
+
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
 	"github.com/opentracing/opentracing-go"
 	"github.com/quipo/statsd"
 	ctx "golang.org/x/net/context"
-	"strconv"
 )
 
 const (

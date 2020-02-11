@@ -47,7 +47,7 @@ func TestEval_AbsoluteInt(t *testing.T) {
 	act := NewActivity(getActivityMetadata())
 	tc := test.NewTestActivityContext(getActivityMetadata())
 
-	tc.SetInput(ivServer, "0.0.0.0:8125")
+	tc.SetInput(ivServer, "192.168.64.3:31091")
 	tc.SetInput(ivMetricType, "absolute-int")
 	tc.SetInput(ivValue, 10)
 	tc.SetInput(ivPrefix, "flogo-statsd.")
@@ -119,7 +119,7 @@ func TestEval_Incr(t *testing.T) {
 	act := NewActivity(getActivityMetadata())
 	tc := test.NewTestActivityContext(getActivityMetadata())
 
-	tc.SetInput(ivServer, "0.0.0.0:8125")
+	tc.SetInput(ivServer, "10.96.169.48:8125")
 	tc.SetInput(ivMetricType, "incr")
 	tc.SetInput(ivValue, 1)
 	tc.SetInput(ivPrefix, "flogo-statsd.")
@@ -239,7 +239,7 @@ func TestEval_Total(t *testing.T) {
 	act := NewActivity(getActivityMetadata())
 	tc := test.NewTestActivityContext(getActivityMetadata())
 
-	tc.SetInput(ivServer, "0.0.0.0:8125")
+	tc.SetInput(ivServer, "10.96.169.48:8125")
 	tc.SetInput(ivMetricType, "total")
 	tc.SetInput(ivValue, 1)
 	tc.SetInput(ivPrefix, "flogo-statsd.")
