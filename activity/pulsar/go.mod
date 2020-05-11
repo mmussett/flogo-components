@@ -1,4 +1,4 @@
-module github.com/mmussett/flogo-components/activity/pulsar2
+module github.com/mmussett/flogo-components/activity/pulsar
 
 go 1.14
 
