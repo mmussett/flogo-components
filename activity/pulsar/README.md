@@ -31,30 +31,12 @@ Inputs and Outputs:
       "required": true
     },
     {
-      "name": "sendTimeout",
-      "type": "integer",
-      "required": true
-    },
-    {
       "name": "payload",
       "type": "string",
       "required": true
-    },
-    {
-      "name": "tracing",
-      "type": "any",
-      "required": false
     }
   ],
   "outputs": [
-    {
-      "name": "response",
-      "type": "string"
-    },
-    {
-      "name": "tracing",
-      "type": "any"
-    }
   ]
 }
 
@@ -65,14 +47,13 @@ Inputs and Outputs:
 |:------------|:---------------|
 | url   | The Pulsar server URL e.g. pulsar://localhost:6650 |
 | topic     | The Pulsar topic to publish the payload to |
-| sendTimeout | The time (in seconds) to block waiting on acknowledgement from Broker |
 | payload | The payload for the message  |
 
 
 ## Outputs
 | Setting     | Description    |
 |:------------|:---------------|
-| tracing     | The output tracing context |
+
 
 ## Configuration Example
 ```json
@@ -80,7 +61,7 @@ Inputs and Outputs:
   "id": 2,
   "type": 1,
   "activityRef": "github.com/mmussett/flogo-contrib/activity/pulsar",
-  "name": "ems",
+  "name": "pulsar",
   "attributes": [
     {
       "name": "url",
@@ -93,20 +74,10 @@ Inputs and Outputs:
       "type": "string"
     },
     {
-      "name": "sendTimeout",
-      "type": "integer",
-      "required": true
-    },
-    {
       "name": "payload",
       "value": "Hello, World",
       "type": "string"
-    },
-    {
-      "name": "tracing",
-      "value": false,
-      "type": "any"
-    }   
+    }
   ],
   "inputMappings": [
     {
