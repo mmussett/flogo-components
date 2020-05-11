@@ -1,0 +1,34 @@
+{
+  "name": "pulsar",
+  "type": "flogo:activity",
+  "version": "0.0.1",
+  "title": "Pulsar Send Activity",
+  "description": "Pulsar Send Activity",
+  "homepage": "https://github.com/mmussett/tree/master/flogo-components/activity/pulsar",
+  "ref": "github.com/mmussett/flogo-components/activity/pulsar",
+  "author": "Mark Mussett <mmussett@me.com>",
+  "settings": [
+  ],
+  "inputs":[
+    {
+      "name": "url",
+      "type": "string",
+      "description" : "Apache Pulsar connection url",
+      "required": true
+    },
+    {
+      "name": "topic",
+      "type": "string",
+      "description" : "Topic to send message to",
+      "required": true
+    },
+    {
+      "name": "payload",
+      "type": "string",
+      "description" : "Message content to send",
+      "required": true
+    }
+  ],
+  "outputs": [
+  ]
+}
