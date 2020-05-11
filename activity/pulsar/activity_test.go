@@ -1,59 +1,33 @@
 package pulsar
 
 import (
-	"io/ioutil"
 	"testing"
 
-	"github.com/TIBCOSoftware/flogo-contrib/action/flow/test"
-	"github.com/TIBCOSoftware/flogo-lib/core/activity"
+	"github.com/project-flogo/core/activity"
+	"github.com/project-flogo/core/support/test"
+	"github.com/stretchr/testify/assert"
 )
 
-var activityMetadata *activity.Metadata
+func TestRegister(t *testing.T) {
 
-func getActivityMetadata() *activity.Metadata {
+	ref := activity.GetRef(&Activity{})
+	act := activity.Get(ref)
 
-	if activityMetadata == nil {
-		jsonMetadataBytes, err := ioutil.ReadFile("activity.json")
-		if err != nil {
-			panic("No Json Metadata found for activity.json path")
-		}
-
-		activityMetadata = activity.NewMetadata(string(jsonMetadataBytes))
-	}
-
-	return activityMetadata
+	assert.NotNil(t, act)
 }
 
-func TestCreate(t *testing.T) {
 
-	act := NewActivity(getActivityMetadata())
+func TestSend(t *testing.T) {
 
-	if act == nil {
-		t.Error("Activity Not Created")
-		t.Fail()
-		return
-	}
+	act := &Activity{}
+	tc := test.NewActivityContext(act.Metadata())
+	input := &Input{Url: "pulsar://localhost:6650", Topic: "topic.sample", Payload: "Hello, World"}
+	err := tc.SetInputObject(input)
+	assert.Nil(t, err)
+
+	done, err := act.Eval(tc)
+	assert.True(t, done)
+	assert.Nil(t, err)
+
 }
 
-func TestEval(t *testing.T) {
-
-	defer func() {
-		if r := recover(); r != nil {
-			t.Failed()
-			t.Errorf("panic during execution: %v", r)
-		}
-	}()
-
-	act := NewActivity(getActivityMetadata())
-	tc := test.NewTestActivityContext(getActivityMetadata())
-
-	//setup attrs
-	tc.SetInput(ivUrl, "pulsar://localhost:6650")
-	tc.SetInput(ivTopic, "topic.sample")
-	tc.SetInput(ivSendTimeout,"10")
-	tc.SetInput(ivPayload, "Hello, World")
-
-	act.Eval(tc)
-
-	//check result attr
-}

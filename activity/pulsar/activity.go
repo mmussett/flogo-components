@@ -1,117 +1,85 @@
 package pulsar
 
 import (
-	ctx "context"
-	"errors"
-	"fmt"
-	"time"
-
-	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	"github.com/TIBCOSoftware/flogo-lib/logger"
+	"context"
 	"github.com/apache/pulsar-client-go/pulsar"
-	"github.com/opentracing/opentracing-go"
+	"github.com/project-flogo/core/activity"
+	"github.com/project-flogo/core/data/metadata"
 )
 
-const (
-	ivUrl     = "url"
-	ivTopic   = "topic"
-	ivSendTimeout = "sendTimeout"
-	ivPayload = "payload"
-	ivTracing = "tracing"
-
-	ovResponse = "response"
-	ovTracing  = "tracing"
-)
-
-var (
-	errorUrlIsNotAString = errors.New("url is not a string")
-)
-
-var log = logger.GetLogger("activity-tibco-ems")
-
-// MyActivity is a stub for your Activity implementation
-type MyActivity struct {
-	metadata *activity.Metadata
+func init() {
+	_ = activity.Register(&Activity{}) //activity.Register(&Activity{}, New) to create instances using factory method 'New'
 }
 
-// NewActivity creates a new activity
-func NewActivity(metadata *activity.Metadata) activity.Activity {
-	return &MyActivity{metadata: metadata}
+var activityMd = activity.ToMetadata(&Settings{}, &Input{}, &Output{})
+
+//New optional factory method, should be used if one activity instance per configuration is desired
+func New(ctx activity.InitContext) (activity.Activity, error) {
+
+	s := &Settings{}
+	err := metadata.MapToStruct(ctx.Settings(), s, true)
+	if err != nil {
+		return nil, err
+	}
+
+	ctx.Logger().Debugf("Setting: %s", s)
+
+	act := &Activity{} //add aSetting to instance
+
+	return act, nil
 }
 
-// Metadata implements activity.Activity.Metadata
-func (a *MyActivity) Metadata() *activity.Metadata {
-	return a.metadata
+// Activity is an sample Activity that can be used as a base to create a custom activity
+type Activity struct {
 }
 
-// Eval implements activity.Activity.Eval
-func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
+// Metadata returns the activity's metadata
+func (a *Activity) Metadata() *activity.Metadata {
+	return activityMd
+}
 
-	var span opentracing.Span
-	if tracing := context.GetInput(ivTracing); tracing != nil {
-		span = opentracing.SpanFromContext(tracing.(ctx.Context))
+// Eval implements api.Activity.Eval - Logs the Message
+func (a *Activity) Eval(ctx activity.Context) (done bool, err error) {
+
+	ctx.Logger().Debug("Executing pulsar activity")
+
+	input := &Input{}
+	err = ctx.GetInputObject(input)
+	if err != nil {
+		return false, err
 	}
-
-	if span != nil {
-		span = opentracing.StartSpan(
-			context.TaskName(),
-			opentracing.ChildOf(span.Context()))
-		context.SetOutput(ovTracing, opentracing.ContextWithSpan(ctx.Background(), span))
-		defer span.Finish()
-	}
-
-	setTag := func(key string, value interface{}) {
-		if span != nil {
-			span.SetTag(key, value)
-		}
-	}
-
-	logError := func(format string, a ...interface{}) {
-		str := fmt.Sprintf(format, a...)
-		setTag("error", str)
-		log.Error(str)
-	}
-
-	url, ok := context.GetInput(ivUrl).(string)
-
-	if !ok {
-		logError(errorUrlIsNotAString.Error())
-		return false, errorUrlIsNotAString
-	}
-
-	duration, _ := context.GetInput(ivSendTimeout).(int)
-	sendTimeout := time.Duration(duration) * time.Second
-
 
 	client, err := pulsar.NewClient(pulsar.ClientOptions{
-		URL: url,
-	})
-
-	defer client.Close()
-
-	topic, _ := context.GetInput(ivTopic).(string)
-
-	producer, err := client.CreateProducer(pulsar.ProducerOptions{
-		Topic: topic,
-		SendTimeout: sendTimeout,
-
-	})
-
-	payload, _ := context.GetInput(ivPayload).(string)
-
-	ctx := ctx.Background()
-
-
-	err = producer.Send(ctx, &pulsar.ProducerMessage{
-		Payload: []byte(payload),
+		URL: input.Url,
 	})
 
 	if err != nil {
-		context.SetOutput(ovResponse, "false")
-	} else {
-		context.SetOutput(ovResponse, "true")
+		ctx.Logger().Error(err)
+		return false, err
 	}
+
+	defer client.Close()
+
+	producer, err := client.CreateProducer(pulsar.ProducerOptions{
+		Topic: input.Topic,
+	})
+
+	if err != nil {
+		ctx.Logger().Error(err)
+		return false, err
+	}
+
 	defer producer.Close()
 
+	_, err = producer.Send(context.Background(), &pulsar.ProducerMessage{
+		Payload: []byte(input.Payload),
+	})
+
+	if err != nil {
+		ctx.Logger().Error(err)
+		return false, err
+	}
+
+	ctx.Logger().Debug("pulsar activity completed")
 	return true, nil
 }
