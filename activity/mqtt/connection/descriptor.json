@@ -1,0 +1,77 @@
+{
+  "name": "mqtt-connector",
+  "title": "MQTT Connector",
+  "author": "mmussett@me.com",
+  "type": "flogo:connector",
+  "version": "0.1.0",
+  "settings": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "description",
+      "type": "string"
+    },
+    {
+      "name": "connectionURI",
+      "type": "string",
+      "required": true,
+      "value": "tcp://localhost:1883"
+    },
+    {
+      "name": "credType",
+      "type": "string",
+      "required": true,
+      "allowed": [
+        "None",
+        "SCRAM-SHA-1",
+        "SCRAM-SHA-256"
+      ],
+      "value": "None"
+    },
+    {
+      "name": "username",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "password",
+      "type": "password",
+      "required": false
+    },
+    {
+      "name": "ssl",
+      "type": "boolean",
+      "required": true,
+      "value": false
+    },
+    {
+      "name": "x509",
+      "type": "boolean",
+      "required": false,
+      "value": false
+    },
+    {
+      "name": "trustCert",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "clientCert",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "clientKey",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "keyPassword",
+      "type": "password",
+      "required": false
+    }
+  ]
+}
