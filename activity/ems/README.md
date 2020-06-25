@@ -19,7 +19,7 @@ Inputs and Outputs:
 
 ```json
 {
-  "inputs":[
+ "inputs":[
     {
       "name": "content",
       "type": "string",
@@ -29,6 +29,16 @@ Inputs and Outputs:
       "name": "destination",
       "type": "string",
       "required": true
+    },
+    {
+      "name": "destinationType",
+      "description": "Type of destination",
+      "type": "string",
+      "allowed": [
+        "queue",
+        "topic"
+      ],
+      "value": "queue"
     },
     {
       "name": "serverUrl",
@@ -46,6 +56,12 @@ Inputs and Outputs:
       "required": false
     },
     {
+      "name": "exchangeMode",
+      "type": "string",
+      "required": true,
+      "allowed": ["send-only","send-receive","receive-only"]
+    },
+    {
       "name": "deliveryDelay",
       "type": "integer",
       "required": true
@@ -53,10 +69,16 @@ Inputs and Outputs:
     {
       "name": "deliveryMode",
       "type": "string",
-      "required": true
+      "required": true,
+      "allowed" : ["persistent","non_persistent","reliable"]
     },
     {
       "name": "expiration",
+      "type": "integer",
+      "required": true
+    },
+    {
+      "name": "timeout",
       "type": "integer",
       "required": true
     },
@@ -67,6 +89,10 @@ Inputs and Outputs:
     }
   ],
   "outputs": [
+    {
+      "name": "response",
+      "type": "string"
+    },
     {
       "name": "tracing",
       "type": "any"
@@ -84,6 +110,8 @@ Inputs and Outputs:
 | serverUrl   | The EMS server URL e.g. tcp://7222 |
 | user        | The user name for the EMS server |
 | password    | The password for the EMS server |
+| deliveryDelay| Sets the delivery delay |
+| deliveryMode| Set the delivery mode, either "persistent","non_persistent","reliable" |
 | tracing     | The tracing context |
 | exchangeMode| Set the exchange pattern, either "send-only","send-receive","receive-only"|
 
