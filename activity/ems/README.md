@@ -85,6 +85,7 @@ Inputs and Outputs:
 | user        | The user name for the EMS server |
 | password    | The password for the EMS server |
 | tracing     | The tracing context |
+| exchangeMode| Set the exchange pattern, either "send-only","send-receive","receive-only"|
 
 ## Outputs
 | Setting     | Description    |
