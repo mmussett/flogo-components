@@ -171,6 +171,26 @@ Outputs and Endpoint:
       "name": "ingestion_time",
       "type": "string"
     },
+        {
+      "name": "org_uuid",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "org_name",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "sub_org_uuid",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "sub_org_name",
+      "type": "string",
+      "description": ""
+    },
     {
       "name": "asCSV",
       "type": "string"
@@ -237,6 +257,11 @@ Outputs and Endpoint:
 | user_agent | User Agent of client |
 | log_type | |
 | ingestion_time | |
+| org_uuid | Unique identifier for a Parent organization |
+| org_name | Organization Name for the Parent organization |
+| sub_org_uuid | Unique identifier for the Sub organization |
+| sub_org_name | Sub Organization Name |
+ 
 | asCSV | |
 | asObject | |
 

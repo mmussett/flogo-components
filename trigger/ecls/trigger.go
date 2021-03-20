@@ -58,6 +58,10 @@ type Message struct {
 		ServiceDefinitionEndpointUUID string `json:"service_definition_endpoint_uuid"`
 		LogType                       string `json:"log_type"`
 		IngestionTime                 string `json:"ingestion_time"`
+		OrgUUID                       string `json:"org_uuid"`
+		OrgName                       string `json:"org_name"`
+		SubOrgUUID                    string `json:"sub_org_uuid"`
+		SubOrgName                    string `json:"sub_org_name"`
 	} `json:"data"`
 }
 
@@ -213,8 +217,13 @@ func (t *Trigger) websocketHandler() {
 					trgData["user_agent"] = eclsMessage.Data[0].UserAgent
 					trgData["log_type"] = eclsMessage.Data[0].LogType
 					trgData["ingestion_time"] = eclsMessage.Data[0].IngestionTime
+					trgData["org_uuid"] = eclsMessage.Data[0].OrgUUID
+					trgData["org_name"] = eclsMessage.Data[0].OrgName
+					trgData["sub_org_uuid"] = eclsMessage.Data[0].SubOrgUUID
+					trgData["sub_org_name"] = eclsMessage.Data[0].SubOrgName
 					trgData["asCSV"] = eclsMessage.flatten()
 					//trgData["asObject"] = s
+					log.Debugf("%+v", trgData)
 
 					for _, handler := range t.Handlers {
 						results, err := handler.Handle(context.Background(), trgData)

@@ -1,8 +1,8 @@
 {
   "name": "ecls",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "type": "flogo:trigger",
-  "ref": "github.com/mmussett/flogo-components/trigger/ecls",
+  "ref": "github.com/chplankl/flogo-components/trigger/ecls",
   "title": "Receive Mashery ECLS Message",
   "description": "ECLS message handler",
   "author": "Mark Mussett <mmussett@tibco.com>",
@@ -197,6 +197,26 @@
     },
     {
       "name": "ingestion_time",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "org_uuid",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "org_name",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "sub_org_uuid",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "sub_org_name",
       "type": "string",
       "description": ""
     },
