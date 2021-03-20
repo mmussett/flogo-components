@@ -261,7 +261,6 @@ Outputs and Endpoint:
 | org_name | Organization Name for the Parent organization |
 | sub_org_uuid | Unique identifier for the Sub organization |
 | sub_org_name | Sub Organization Name |
- 
 | asCSV | |
 | asObject | |
 
@@ -315,4 +314,3 @@ Configure the Trigger to receive Mashery ECLS events
   ]
 }
 ```
-
