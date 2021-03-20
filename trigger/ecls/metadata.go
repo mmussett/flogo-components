@@ -51,10 +51,10 @@ type Output struct {
 	UserAgent                     string `md:"user_agent,required"`
 	LogType                       string `md:"log_type,required"`
 	IngestionTime                 string `md:"ingestion_time,required"`
-	OrgUUID                       string `json:"org_uuid"`
-	OrgName                       string `json:"org_name"`
-	SubOrgUUID                    string `json:"sub_org_uuid"`
-	SubOrgName                    string `json:"sub_org_name"`
+	OrgUUID                       string `md:"org_uuid"`
+	OrgName                       string `md:"org_name"`
+	SubOrgUUID                    string `md:"sub_org_uuid"`
+	SubOrgName                    string `md:"sub_org_name"`
 	AsCsv                         string `md:"asCSV,required"`
 }
 
