@@ -1,5 +1,6 @@
 {
   "name": "ecls",
+  "version": "0.9.1"
   "type": "flogo:trigger",
   "ref": "github.com/mmussett/flogo-components/trigger/ecls",
   "title": "Receive Mashery ECLS Message",
