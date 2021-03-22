@@ -167,8 +167,7 @@ func (t *Trigger) websocketHandler() {
 				log.Debug("acknowledgement received")
 			} else {
 
-				log.Error(s)
-				//log.Debug(s)
+				log.Debug(s)
 
 				var eclsMessage Message
 
@@ -231,7 +230,7 @@ func (t *Trigger) websocketHandler() {
 						}
 						log.Debugf("Ran Handler: [%s]", handler)
 						log.Debugf("Results [%v]", results)
-						
+
 					}
 				} else {
 					log.Errorf("Unable to unmarshal ECLS event: %v", err)
