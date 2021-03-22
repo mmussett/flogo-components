@@ -167,13 +167,12 @@ func (t *Trigger) websocketHandler() {
 				log.Debug("acknowledgement received")
 			} else {
 
-				log.Debug(s)
+				log.Error(s)
+				//log.Debug(s)
 
 				var eclsMessage Message
 
 				err := json.Unmarshal([]byte(s), &eclsMessage)
-
-				eclsMessage.flatten()
 
 				if err == nil {
 
@@ -223,7 +222,7 @@ func (t *Trigger) websocketHandler() {
 					trgData["sub_org_name"] = eclsMessage.Data[0].SubOrgName
 					trgData["asCSV"] = eclsMessage.flatten()
 					//trgData["asObject"] = s
-					log.Debugf("%+v", trgData)
+
 
 					for _, handler := range t.Handlers {
 						results, err := handler.Handle(context.Background(), trgData)
@@ -232,6 +231,7 @@ func (t *Trigger) websocketHandler() {
 						}
 						log.Debugf("Ran Handler: [%s]", handler)
 						log.Debugf("Results [%v]", results)
+						
 					}
 				} else {
 					log.Errorf("Unable to unmarshal ECLS event: %v", err)
