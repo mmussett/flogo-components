@@ -51,6 +51,10 @@ type Output struct {
 	UserAgent                     string `md:"user_agent,required"`
 	LogType                       string `md:"log_type,required"`
 	IngestionTime                 string `md:"ingestion_time,required"`
+	OrgUuid                       string `md:"org_uuid"`
+	OrgName                       string `md:"org_name"`
+	SubOrgUuid                    string `md:"sub_org_uuid"`
+	SubOrgName                    string `md:"sub_org_name"`
 	AsCsv                         string `md:"asCSV,required"`
 }
 
@@ -93,6 +97,10 @@ func (o *Output) ToMap() map[string]interface{} {
 		"user_agent":                       o.UserAgent,
 		"log_type":                         o.LogType,
 		"ingestion_time":                   o.IngestionTime,
+		"org_uuid":                         o.OrgUuid,
+		"org_name":                         o.OrgName,
+		"sub_org_uuid":                     o.SubOrgUuid,
+		"sub_org_name":                     o.SubOrgName,
 		"asCSV":                            o.AsCsv,
 	}
 }
@@ -245,6 +253,22 @@ func (o *Output) FromMap(values map[string]interface{}) error {
 		return err
 	}
 	o.IngestionTime, err = coerce.ToString(values["ingestion_time"])
+	if err != nil {
+		return err
+	}
+	o.OrgUuid, err = coerce.ToString(values["org_uuid"])
+	if err != nil {
+		return err
+	}
+	o.OrgName, err = coerce.ToString(values["org_name"])
+	if err != nil {
+		return err
+	}
+	o.SubOrgUuid, err = coerce.ToString(values["sub_org_uuid"])
+	if err != nil {
+		return err
+	}
+	o.SubOrgName, err = coerce.ToString(values["sub_org_name"])
 	if err != nil {
 		return err
 	}
