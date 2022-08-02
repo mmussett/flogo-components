@@ -13,6 +13,16 @@ type Output struct {
 	Result string `md:"result"`
 }
 
+func (o *Output) FromMap(values map[string]interface{}) error {
+	var err error
+	o.Result, err = coerce.ToString(values["result"])
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (i *Input) ToMap() map[string]interface{} {
 	return map[string]interface{}{
 		"user":     i.User,
