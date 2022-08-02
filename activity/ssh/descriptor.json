@@ -1,0 +1,45 @@
+{
+  "name": "concat",
+  "version": "1.0.0",
+  "title": "SSH Activity",
+  "author": "mmussett@me.com",
+  "type": "flogo:activity",
+
+  "display": {
+    "category": "TIBCO",
+    "visible": true,
+    "smallIcon": "ssh.png",
+    "description": "This activity runs ssh command on a remote server"
+  },
+
+  "ref": "github.com/mmussett/flogo-components/activity/ssh",
+  "inputs": [
+    {
+      "name": "user",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "host",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "command",
+      "type": "string",
+      "required": true
+    }
+  ],
+
+  "outputs": [
+    {
+      "name": "result",
+      "type": "string"
+    }
+  ]
+}
