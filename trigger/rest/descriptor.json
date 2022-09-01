@@ -1,7 +1,7 @@
 {
   "name": "flogo-rest",
   "type": "flogo:trigger",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "title": "Receive HTTP Message",
   "description": "Simple REST Trigger",
   "homepage": "https://github.com/project-flogo/contrib/tree/master/trigger/rest",
@@ -31,6 +31,11 @@
       "name": "ignoreContentType",
       "type":"boolean",
       "description": "Ignore content type and treat as string"
+    },
+    {
+      "name": "forceDecoding",
+      "type":"boolean",
+      "description": "Force decoding of body"
     }
   ],
   "output": [

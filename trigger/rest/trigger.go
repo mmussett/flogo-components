@@ -3,6 +3,7 @@ package rest
 import (
 	"bytes"
 	"context"
+	"encoding/base64"
 	"encoding/json"
 	"io"
 	"io/ioutil"
@@ -173,6 +174,8 @@ func newActionHandler(rt *Trigger, method string, handler trigger.Handler) httpr
 		}
 
 		ignoreContentType := rt.settings.IgnoreContentType
+		forceDecoding := rt.settings.ForceDecoding
+
 		if ignoreContentType == true {
 
 			b, err := ioutil.ReadAll(r.Body)
@@ -182,8 +185,17 @@ func newActionHandler(rt *Trigger, method string, handler trigger.Handler) httpr
 				return
 			}
 
-			out.Content = string(b)
-
+			if forceDecoding == true {
+				decodedText, err := base64.StdEncoding.DecodeString(string(b))
+				if err != nil {
+					logger.Debugf("Error decoding body: %s", err.Error())
+					http.Error(w, err.Error(), http.StatusBadRequest)
+					return
+				}
+				out.Content = decodedText
+			} else {
+				out.Content = string(b)
+			}
 		} else {
 
 			// Check the HTTP Header Content-Type

@@ -10,6 +10,8 @@ type Settings struct {
 	CertFile          string `md:"certFile"`          // The path to PEM encoded server certificate
 	KeyFile           string `md:"keyFile"`           // The path to PEM encoded server key
 	IgnoreContentType bool   `md:"ignoreContentType"` // Ignore content-type header and treat as string
+	ForceDecoding     bool   `md:"forceDecoding"`     // Ignore content-type header and treat as string
+
 }
 
 type HandlerSettings struct {
