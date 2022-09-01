@@ -1,0 +1,102 @@
+{
+  "name": "flogo-rest",
+  "type": "flogo:trigger",
+  "version": "0.11.0",
+  "title": "Receive HTTP Message",
+  "description": "Simple REST Trigger",
+  "homepage": "https://github.com/project-flogo/contrib/tree/master/trigger/rest",
+  "settings": [
+    {
+      "name": "port",
+      "type": "int",
+      "required": true,
+      "description": "The port to listen on"
+    },
+    {
+      "name":"enableTLS",
+      "type":"boolean",
+      "description": "Enable TLS on the server"
+    },
+    {
+      "name": "certFile",
+      "type":"string",
+      "description": "The path to PEM encoded server certificate"
+    },
+    {
+      "name": "keyFile",
+      "type":"string",
+      "description": "The path to PEM encoded server key"
+    },
+    {
+      "name": "ignoreContentType",
+      "type":"boolean",
+      "description": "Ignore content type and treat as string"
+    }
+  ],
+  "output": [
+    {
+      "name": "pathParams",
+      "type": "params",
+      "description": "The path parameters (e.g., 'id' in http://.../pet/:id/name )"
+    },
+    {
+      "name": "queryParams",
+      "type": "params",
+      "description": "The query parameters (e.g., 'id' in http://.../pet?id=someValue )"
+    },
+    {
+      "name": "headers",
+      "type": "params",
+      "description": "The HTTP header parameters"
+    },
+    {
+      "name": "method",
+      "type": "string",
+      "description": "The HTTP method used"
+    },
+    {
+      "name": "content",
+      "type": "any",
+      "description": "The content of the request"
+    }
+  ],
+  "reply": [
+    {
+      "name": "code",
+      "type": "int",
+      "description": "The http code to reply with"
+    },
+    {
+      "name": "data",
+      "type": "any",
+      "description": "The data to reply with"
+    },
+    {
+      "name": "headers",
+      "type": "params",
+      "description": "The HTTP response headers"
+    },
+    {
+      "name": "cookies",
+      "type": "array",
+      "description": "The response cookies, adds `Set-Cookie` headers"
+    }
+  ],
+  "handler": {
+    "settings": [
+      {
+        "name": "method",
+        "type": "string",
+        "required" : true,
+        "allowed" : ["GET", "POST", "PUT", "PATCH", "DELETE"],
+        "description": "The HTTP method (ie. GET,POST,PUT,PATCH or DELETE)"
+      },
+      {
+        "name": "path",
+        "type": "string",
+        "required" : true,
+        "description": "The resource path"
+      }
+    ]
+  }
+}
