@@ -8,7 +8,7 @@ This trigger provides your flogo application the ability to start an action via 
 ## Installation
 
 ```bash
-flogo install github.com/project-flogo/contrib/trigger/rest
+flogo install github.com/mmussett/flogo-components/trigger/rest
 ```
 
 ## Configuration
@@ -20,7 +20,8 @@ flogo install github.com/project-flogo/contrib/trigger/rest
 | enableTLS | bool   | Enable TLS on the server
 | certFile  | string | The path to PEM encoded server certificate
 | keyFile   | string | The path to PEM encoded server key
-
+| ignoreContentType | bool   | Ignore content-type and treat body as string
+| forceDecoding | bool   | Apply base64 decoding of body (ignoreContentType must be set to True)
 
 ### Handler Settings:
 | Name     | Type   | Description
